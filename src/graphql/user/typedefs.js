@@ -6,6 +6,6 @@ export const userTypeDefs = gql`
   }
   type User {
     id: ID!
-    username: String!
+    userName: String!
   }
 `;
