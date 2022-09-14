@@ -1,7 +1,6 @@
 {
   "name": "gitteste",
   "version": "1.0.0",
-  "description": "",
   "main": "src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -33,5 +32,6 @@
     "nodemon": "^2.0.19",
     "prettier": "^2.7.1",
     "sucrase": "^3.26.0"
-  }
+  },
+  "description": ""
 }
