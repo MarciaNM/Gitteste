@@ -2,15 +2,15 @@ const users = () => {
   return [
     {
       id: '1',
-      usarName: 'Márcia',
+      userName: 'Márcia',
     },
     {
       id: '2',
-      usarName: 'Marcos',
+      userName: 'Marcos',
     },
     {
       id: '3',
-      usarName: 'Maria',
+      userName: 'Maria',
     },
   ];
 };
@@ -18,7 +18,7 @@ const users = () => {
 const user = () => {
   return {
     id: '1',
-    usarName: 'Márcia',
+    userName: 'Márcia',
   };
 };
 
