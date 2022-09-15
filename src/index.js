@@ -8,7 +8,7 @@ const server = new ApolloServer({
   resolvers,
   context: () => {
     return {
-      hello: 123,
+      fetch,
     };
   },
 });
