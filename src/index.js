@@ -1,6 +1,5 @@
 import { ApolloServer } from 'apollo-server';
 import fetch from 'node-fetch';
-
 import { resolvers, typeDefs } from './graphql/schema';
 
 const server = new ApolloServer({
