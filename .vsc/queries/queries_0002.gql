@@ -1,26 +1,16 @@
-query GET_USERS{
+query GET_POST{
 
-users {
+post {
   id
-  createdAt
-  firstName
-  indexRef
-  lastName
-  userName
-  typename
+  title
 
  }
 }
 
-query GET_USER{
+query GET_POSTS{
 
-user {
+posts {
   id
-  createdAt
-  firstName
-  indexRef
-  lastName
-  userName
-  typename
+ title
  }
 }

@@ -6,7 +6,7 @@ const users = async (_, __, { getUsers }) => {
 const user = async (_, { id }, { fetch }) => {
   const response = await fetch('/' + id); // para não ficar duplicado o caminho no código
   const user = await response.json();
-  return user();
+  return user;
 };
 
 export const userResolvers = {
