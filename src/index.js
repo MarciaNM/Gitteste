@@ -1,17 +1,14 @@
 import { ApolloServer } from 'apollo-server';
-import fetch from 'node-fetch';
+
 import { resolvers, typeDefs } from './graphql/schema';
+import { context } from './graphql/user/context';
 
 const server = new ApolloServer({
   typeDefs,
   resolvers,
-  context: () => {
-    return {
-      fetch,
-    };
-  },
+  context,
 });
 
-server.listen(4003).then(({ url }) => {
+server.listen(7852).then(({ url }) => {
   console.log(`Server Listening on url ${url}`);
 });

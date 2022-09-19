@@ -1,0 +1,26 @@
+query GET_USERS{
+
+users {
+  id
+  createdAt
+  firstName
+  indexRef
+  lastName
+  userName
+  typename
+
+ }
+}
+
+query GET_USER{
+
+user {
+  id
+  createdAt
+  firstName
+  indexRef
+  lastName
+  userName
+  typename
+ }
+}
