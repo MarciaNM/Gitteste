@@ -1,6 +1,6 @@
 const users = async (_, { input }, { getUsers }) => {
-  const apiFiltersInput = new URLSearchParams(input);
-  const users = await getUsers('/? + apiFiltersInput'); // criado caminho no arquivo context.js
+  const ApiFiltersInput = new URLSearchParams(input);
+  const users = await getUsers('/? + ApiFiltersInput'); // criado caminho no arquivo context.js
   return users.json();
 };
 
