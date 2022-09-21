@@ -1,0 +1,26 @@
+query GET_POST{
+
+post(id:"342") {
+  id
+  title
+  body
+  indexRef
+  createdAt
+  }
+}
+
+
+
+
+}
+
+query GET_POST{
+
+post(id:"342") {
+  id
+  title
+  body
+  indexRef
+  createdAt
+  }
+}

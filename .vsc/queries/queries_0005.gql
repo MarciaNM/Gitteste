@@ -1,0 +1,24 @@
+# Query Variables
+#{
+#  "id": "115",
+#  "teste": true
+#}
+# teste realizado no servidor
+
+query GET_USERS($id: ID! $teste: Boolean) {
+    user(
+      id:$id
+      teste: $teste
+
+       {
+      id
+      firstName
+      lastName
+      userName
+      __typename
+      indexRef
+    }
+
+}
+
+

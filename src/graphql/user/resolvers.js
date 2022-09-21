@@ -3,8 +3,8 @@ const users = async (_, __, { getUsers }) => {
   return users.json();
 };
 
-const user = async (_, { id }, { fetch }) => {
-  const response = await fetch('/' + id); // para não ficar duplicado o caminho no código
+const user = async (_, { id }, { getUsers }) => {
+  const response = await getUsers('/' + id); // para não ficar duplicado o caminho no código
   const user = await response.json();
   return user;
 };
