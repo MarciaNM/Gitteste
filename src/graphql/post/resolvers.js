@@ -10,9 +10,9 @@ const posts = async (_, __, { getPosts }) => {
 export const postResolvers = {
   Query: { post, posts },
   Post: {
-    unixTimestamp: ({ createdAT }) => {
-      const timestamp = new Date(createdAT).getTime() / 1000;
-      return Math.floor(timestamp);
+    unixTimestamp: ({ createdAt }) => {
+      const timestemp = new Date(createdAt).getTime() / 1000;
+      return Math.floor(timestemp);
     },
   },
 };
