@@ -13,5 +13,6 @@ export const postTypeDefs = gql`
     #userId (user: USer!)
     indexRef: Int!
     createdAt: String!
+    unixTimestamp: String! #Criado esse campo para testar no resolvers,um campo há mais que não tinha na base de dados
   }
 `;
