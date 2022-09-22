@@ -10,7 +10,7 @@ const post = async (_, { id }, { getPosts }) => {
     };
   }
 
-  if (typeof post.id === 'undefined') {
+  if (typeof post.id == 'undefined') {
     return {
       statusCode: 404,
       message: 'Post not found!',
