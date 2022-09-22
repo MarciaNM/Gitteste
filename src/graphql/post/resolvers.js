@@ -47,7 +47,6 @@ export const postResolvers = {
     __resolverType: (obj) => {
       if (typeof obj.postId !== 'undefined') return 'PostNotFoundError'; // PostResult aula 32 caso não tiver o post apresenta a mensagem de erro
       if (typeof obj.timeout !== 'undefined') return 'PostTimeOutError';
-      if (typeof obj.id !== 'undefined') return 'Post'; // se tiver o post no id apresenta o post
       return null; // senão retorna null
     },
   },
