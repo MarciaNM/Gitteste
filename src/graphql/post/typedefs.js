@@ -5,13 +5,22 @@ export const postTypeDefs = gql`
     post(id: ID!): PostResult!
     posts(input: ApiFiltersInput): [Post!]!
   }
-  # criado o union e o type PostNotFoundError para tratar se o post não existir
-  #inserção da aula 31 Union Types e alterado o post(id: ID!): PostResult! acima
-  union PostResult = PostNotFoundError | Post
+  union PostResult = PostNotFoundError | PostTimeOutError | Post
 
-  type PostNotFoundError {
+  interface PostError {
     statusCode: Int!
     message: String!
+  }
+
+  type PostNotFoundError implements PostError {
+    statusCode: Int!
+    message: String!
+    postId: String!
+  }
+  type PostTimeOutError implements PostError {
+    statusCode: Int!
+    message: String!
+    timeout: String!
   }
 
   type Post {
