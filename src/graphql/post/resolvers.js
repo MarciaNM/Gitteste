@@ -1,6 +1,6 @@
 const post = async (_, { id }, { getPosts }) => {
   const response = await getPosts('/' + id);
-  const post = response.json(); //alterado para aula 31 para tratar o if abaixo
+  const post = await response.json(); //alterado para aula 31 para tratar o if abaixo
 
   if (typeof post.id == 'undefined') {
     return {
@@ -20,15 +20,14 @@ export const postResolvers = {
   Query: { post, posts },
   Post: {
     unixTimestamp: ({ createdAt }) => {
-      const timestemp = new Date(createdAt).getTime() / 1000;
-      return Math.floor(timestemp);
+      const timestamp = new Date(createdAt).getTime() / 1000;
+      return Math.floor(timestamp);
     },
   },
 
   PostResult: {
-    // criado para resolver o typedefes da aula 31 Type Union
     __resolverType: (obj) => {
-      if (typeof obj.statusCode !== 'undefinid') return 'PostNotFoundError'; // caso não tiver o post apresenta a mensagem de erro
+      if (typeof obj.statusCode !== 'undefined') return 'PostNotFoundError'; // PostResult aula 31 caso não tiver o post apresenta a mensagem de erro
       if (typeof obj.id !== 'undefined') return 'Post'; // se tiver o post no id apresenta o post
       return null; // senão retorna null
     },
