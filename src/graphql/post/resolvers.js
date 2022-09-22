@@ -2,7 +2,7 @@ const post = async (_, { id }, { getPosts }) => {
   const response = await getPosts('/' + id);
   const post = await response.json(); //alterado para aula 31 para tratar o if abaixo
 
-  if (typeof post.id == 'undefined') {
+  if (typeof post.id === 'undefined') {
     return {
       statusCode: 404,
       message: 'Post not found!',
