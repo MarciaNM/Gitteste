@@ -15,7 +15,7 @@ query GET_POST {
         postId
       }
 
-      ... on PostTimeoutError {
+      ... on PostTimeOutError {
         timeout
       }
     }
