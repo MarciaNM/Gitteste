@@ -7,4 +7,8 @@ export const apiFiltersTypeDefs = gql`
     _start: Int
     _limit: Int
   }
+  enum ApiFilterOrder {
+    ASC
+    DESC
+  }
 `;
