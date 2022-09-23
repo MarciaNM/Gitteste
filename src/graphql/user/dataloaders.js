@@ -3,8 +3,7 @@
 import DataLoader from 'dataloader';
 
 export const makeUserDataLoader = (getUsers) => { // aula 37 inserido a função
-  // aula 36 userDataloader
-  const userDataloader = new DataLoader(async (ids) => {
+  return new DataLoader(async (ids) => { // // aula 36 userDataloader
     const urlQuery = ids.join('&id='); //criando url com os id na ordem
     const response = await getUsers('?id=' + urlQuery);
     const users = await response.json();

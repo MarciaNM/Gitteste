@@ -11,8 +11,6 @@ const posts = async (_, { input }, { getPosts }) => {
   return response.json();
 };
 
-
-// eslint-disable-next-line no-unused-vars
 const user = async ({ userId }, _, { userDataloader }) => {
   return userDataloader.load(userId);
 };
