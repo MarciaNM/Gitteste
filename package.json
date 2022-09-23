@@ -20,6 +20,7 @@
   "homepage": "https://github.com/MarciaNM/Gitteste#readme",
   "dependencies": {
     "@apollo/gateway": "^2.0.0",
+    "apollo": "^2.34.0",
     "apollo-server": "^3.10.2",
     "dataloader": "^2.1.0",
     "dotenv": "^16.0.2",
@@ -30,6 +31,7 @@
     "node-fetch": "^2.6.1",
     "package-lock.json": "^1.0.0",
     "package.json": "^2.0.1",
+    "server": "^1.0.37",
     "share": "^0.7.40"
   },
   "devDependencies": {
@@ -41,7 +43,7 @@
     "eslint-plugin-react": "^7.31.8",
     "eslint-plugin-react-hooks": "^4.6.0",
     "nodemon": "^2.0.20",
-    "prettier": "2.7.1",
+    "prettier": "^2.7.1",
     "sucrase": "^3.27.0"
   },
   "description": ""
