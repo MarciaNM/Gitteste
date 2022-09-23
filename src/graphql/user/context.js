@@ -1,6 +1,6 @@
 import fetch from 'node-fetch';
-import { makeUserDataLoader } from './dataloader';
-import { getUsers } from './user/utils';
+import { makeUserDataLoader } from './dataloaders';
+import { getUsers } from './utils';
 
 const API_URL = process.env.API_URL;
 export const context = () => {
