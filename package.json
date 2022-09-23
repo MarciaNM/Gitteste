@@ -23,6 +23,7 @@
     "apollo-server": "^3.10.2",
     "dataloader": "^2.1.0",
     "dotenv": "^16.0.2",
+    "eslint-plugin-svelte": "^2.8.0",
     "graphql": "^16.6.0",
     "json-server": "^0.17.0",
     "live": "^0.1.25-beta.0",
