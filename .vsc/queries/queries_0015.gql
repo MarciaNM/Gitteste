@@ -1,0 +1,16 @@
+# consulta da aula 36
+query GET_POSTS {
+  posts{
+       id
+      title
+      user {
+        id
+        firstName
+        lastName
+        userName
+        indexRef
+        createdAt
+
+  }
+}
+}
