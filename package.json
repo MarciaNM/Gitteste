@@ -21,6 +21,7 @@
   "dependencies": {
     "@apollo/gateway": "^2.0.0",
     "apollo-server": "^3.10.2",
+    "dataloader": "^2.1.0",
     "graphql": "^16.6.0",
     "json-server": "^0.17.0",
     "live": "^0.1.25-beta.0",
