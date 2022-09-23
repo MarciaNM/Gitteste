@@ -8,7 +8,11 @@ const posts = async (_, { input }, { getPosts }) => {
   const response = await getPosts('/?' + ApiFiltersInput);
   return response.json();
 };
-
+const user = async ({ userId }, _, { getUsers }) => {
+  const response = await getUsers('/' + userId);
+  return response.json();
+};
 export const postResolvers = {
   Query: { post, posts },
+  Post: { user }, // criado aula 34 e tratado no user acima
 };
