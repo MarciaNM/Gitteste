@@ -1,5 +1,3 @@
-
-
 const post = async (_, { id }, { getPosts }) => {
   const response = await getPosts('/' + id);
   const post = await response.json(); //alterado para aula 31 para tratar o if abaixo

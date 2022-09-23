@@ -1,5 +1,4 @@
 // aula 37 criado arquivo dataloaders e retirado do resolvers.post o userDataloarder e colocado neste arquivo
-
 import DataLoader from 'dataloader';
 
 export const makeUserDataLoader = (getUsers) => { // aula 37 inserido a função
