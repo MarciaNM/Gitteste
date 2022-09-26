@@ -1,3 +1,5 @@
-export const getPosts = (fetch) => {
-  return fetch(process.env.API_URL + '/posts' + '/');
-};
+export const getPosts =
+  (fetch) =>
+  (path = '/') => {
+    return fetch(process.env.API_URL + '/posts' + path);
+  };
