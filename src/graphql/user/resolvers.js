@@ -1,4 +1,3 @@
-
 const users = async (_, { input }, { getUsers }) => {
   const ApiFiltersInput = new URLSearchParams(input);
   const users = await getUsers('/? + ApiFiltersInput'); // criado caminho no arquivo context.js
@@ -11,6 +10,11 @@ const user = async (_, { id }, { getUsers }) => {
   return user;
 };
 
+const posts = ({ id }, _, { postDataLoader }) => {
+  return postDataloader.load(id);
+};
+
 export const userResolvers = {
-  Query:{ user, users},
+  Query: { user, users },
+  User: { posts },
 };
