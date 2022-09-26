@@ -9,13 +9,3 @@ query GET_USER {
     }
   }
 }
-# consulta aula 39 no GET_USERS
-query GET_USERS {
-  users {
-    id
-    firstName
-    posts {
-      id
-    }
-  }
-}
