@@ -5,7 +5,7 @@ export const makePostDataLoader = (getPosts) => {
     const urlQuery = ids.join('&userId=');
     const response = await getPosts('?userId=' + urlQuery);
     const posts = await response.json();
-    return ids.map((id => {
+    return ids.map((id) => {
       return posts.filter((post) => post.userId == id);
     });
   });
