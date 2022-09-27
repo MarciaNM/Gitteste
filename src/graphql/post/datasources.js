@@ -1,5 +1,5 @@
 import { RESTDataSource } from 'apollo-datasource-rest';
-import { makePostDataLoader } from '../post/dataloaders';
+import { makePostDataLoader } from './dataloaders';
 
 export class PostsApi extends RESTDataSource {
   constructor() {
@@ -9,12 +9,12 @@ export class PostsApi extends RESTDataSource {
   }
   async getPosts(urlParams = {}) {
     return this.get('', urlParams, {
-      cacheOptions: { ttl: 60 },
+      cacheOptions: { ttl: 0 },
     });
   }
   async getPost(id) {
     return this.get(id, undefined, {
-      cacheOptions: { ttl: 60 },
+      cacheOptions: { ttl: 0 },
     });
   }
   batchLoadByUserId(id) {
