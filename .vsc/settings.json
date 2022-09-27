@@ -1,0 +1,7 @@
+{
+  "windows.zommLevel": 3,
+  "code-runner.executorMap": {
+    "javascript": "node-r dotenv/config -r sucrase/register"
+  }
+}
+
