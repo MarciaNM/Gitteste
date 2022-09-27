@@ -1,14 +1,14 @@
 import { RESTDataSource } from 'apollo-datasource-rest';
-// eslint-disable-next-line no-unused-vars
-import { URLSearchParams } from 'url';
+import { makePostDataLoader } from '../post/dataloaders';
 
 export class PostsApi extends RESTDataSource {
   constructor() {
     super();
     this.baseURL = process.env.API_URL + '/posts/';
+    this.dataLoader = makePostDataLoader(this.getPosts.bind(this));
   }
-  async getPosts(URLSearchParams = {}) {
-    return this.get('', URLSearchParams, {
+  async getPosts(urlParams = {}) {
+    return this.get('', urlParams, {
       cacheOptions: { ttl: 60 },
     });
   }
