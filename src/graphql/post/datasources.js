@@ -5,10 +5,14 @@ export class PostsApi extends RESTDataSource {
     super();
     this.baseURL = process.env.API_URL + '/posts/';
   }
-  async gePosts(urlParams = {}) {
-    return this.get('', urlParams);
+  async getPosts(URLParams = {}) {
+    return this.get('', URLParams, {
+      cacheOptions: { ttl: 60 },
+    });
   }
-  async gePost(id) {
-    return this.get(id);
+  async getPost(id) {
+    return this.get(id, undefined, {
+      cacheOptions: { ttl: 60 },
+    });
   }
 }
