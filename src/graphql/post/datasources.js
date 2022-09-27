@@ -17,4 +17,7 @@ export class PostsApi extends RESTDataSource {
       cacheOptions: { ttl: 60 },
     });
   }
+  batchLoadByUserId(id) {
+    return this.dataLoader.load(id);
+  }
 }

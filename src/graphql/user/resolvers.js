@@ -10,7 +10,7 @@ const user = async (_, { id }, { getUsers }) => {
 };
 
 const posts = ({ id }, _, { dataSources }) => {
-  return dataSources.postApi.dataLoader.load(id);
+  return dataSources.postApi.batchLoadByUserId(id);
 };
 
 export const userResolvers = {
