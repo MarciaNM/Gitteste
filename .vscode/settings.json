@@ -4,11 +4,9 @@
     "javascript": "node -r dotenv/config -r sucrase/register"
   },
   "cSpell.words": [
+    "datasource",
     "datasources",
-<<<<<<< HEAD
     "stringfy",
-=======
->>>>>>> 54588f2147c07994488e4576f1c584ba7905e638
     "zomm"
   ]
 }
