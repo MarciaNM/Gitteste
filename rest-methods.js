@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import fetch from 'node-fetch';
 const API_URL = process.env.API_URL;
 
@@ -12,9 +11,8 @@ const get = (endPoint, urlParam, requestInit) => {
     },
     ...requestInit,
   });
-  const post = (endPoint, body, requestInit) => {
-    const url =
-      API_URL + '/' + endPoint;
+  const post = ( endPoint, body, requestInit = {}) => {
+    const url = API_URL + '/' + endPoint;
     return fetch(url, {
       method: 'POST',
       Headers: {
@@ -31,7 +29,7 @@ const get = (endPoint, urlParam, requestInit) => {
   //console.log(user);
 
   // POST - Criar
-  const userResponse = await get('users', {
+  const userResponse = await post('users', {
     id: '6000',
     firstName: 'CRIADO - Márcia',
     lastName: 'CRIADO -Carvalho',

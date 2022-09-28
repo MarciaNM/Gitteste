@@ -37,6 +37,7 @@
     "share": "^0.7.40"
   },
   "devDependencies": {
+    "@babel/eslint-parser": "^7.19.1",
     "@types/node": "^18.7.21",
     "@typescript-eslint/eslint-plugin": "^5.37.0",
     "@typescript-eslint/parser": "^5.37.0",
