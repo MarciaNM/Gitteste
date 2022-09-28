@@ -189,15 +189,7 @@
       "id": "ASPSRjd",
       "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVII9.eyJ1c2VySWQiOiJBU1BVUmpkIiwiaWF0IjoxNjIyMzYxMjcyLCJleHAiOjE2MjI5NjYwNzJ9.GKPpjSbWXbi4wddd0Wt27qHitNHUIESusGzblLuQ1X8"
     },
-    {
-      "id": "6000",
-      "firstName": "CRIADO - Márcia",
-      "lastName": "CRIADO -Carvalho",
-      "userName": "CRIADO -marcia_carvalho81",
-      "indexRef": 1,
-      "createdAt": "CRIADO -2016-12-08T00:49:39.870Z"
-    }
-  ],
+    
   "posts": [
     {
       "id": "860",

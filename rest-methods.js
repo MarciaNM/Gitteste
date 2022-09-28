@@ -35,7 +35,7 @@ const post = (endPoint, body, requestInit = {}) => {
   //const user = await userGetResponse.json();
   //console.log(user);
 
-  // POST - Criar
+  // POST - Criar // criado o id 6000 com alterações e foi salvo no arquivo d.j para teste
   const userResponse = await post('users', {
     id: '6000',
     firstName: 'CRIADO - Márcia',
