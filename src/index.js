@@ -11,13 +11,7 @@ const server = new ApolloServer({
     return {
       postApi: new PostsApi(),
     };
-  },
-});
 
-<<<<<<< HEAD
-server.listen(7956).then(({ url }) => {
-=======
-server.listen(7955).then(({ url }) => {
->>>>>>> 54588f2147c07994488e4576f1c584ba7905e638
-  console.log(`Server Listening on url ${url}`);
-});
+    server.listen(7956).then(({ url }) => {
+      console.log(`Server Listening on url ${url}`);
+    });
