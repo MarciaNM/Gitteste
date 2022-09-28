@@ -18,7 +18,7 @@ const get = (endPoint, urlParam, requestInit) => {
       Headers: {
         'Context-Type': 'application/json',
       },
-      body: JSON.stringfy(),
+      body: JSON.stringfy(body),
       ...requestInit,
     });
   };
@@ -30,7 +30,7 @@ const get = (endPoint, urlParam, requestInit) => {
 
     // POST - Criar
     const userResponse = await post('users', {
-      id: '6000',
+      id: '7000',
       firstName: 'CRIADO - Márcia',
       lastName: 'CRIADO -Carvalho',
       userName: 'CRIADO -Marcia_carvalho81',
