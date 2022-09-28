@@ -1,7 +1,8 @@
 {
   "windows.zommLevel": 3,
   "code-runner.executorMap": {
-    "javascript": "nodemon -r dotenv/config -r sucrase/register src/index.js"
+    "javascript": "node -r dotenv/config -r sucrase/register src/index.js"
   }
 }
+
 

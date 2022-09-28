@@ -4,7 +4,6 @@
     "javascript": "node -r dotenv/config -r sucrase/register"
   },
   "cSpell.words": [
-    "datasources",
     "zomm"
   ]
 }

@@ -16,7 +16,7 @@ const get = (endPoint, urlParam, requestInit = {}) => {
   );
 };
 (async () => {
-  const userGetResponse = await get('users');
+  const userGetResponse = await get('/users');
   const user = await userGetResponse.json();
   console.log(user);
 })();
