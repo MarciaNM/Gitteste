@@ -24,6 +24,9 @@
         "argsIgnorePattern": "^_",
         "varsIgnorePattern": "^_"
       }
+      {
+        "parser":"babel-eslint"
+     }
     ]
   }
 }
