@@ -1,9 +1,15 @@
 {
+  "windows.zommLevel": 3,
+  "code-runner.executorMap": {
+    "javascript": "node -r dotenv/config -r sucrase/register"
+  },
   "cSpell.words": [
-    "dataloaders",
-    "datasource",
     "datasources",
-    "dotenv",
+    "Enzo",
+    "Esvhhpd",
+    "marcia",
+    "Rsuy",
+    "stringfy",
     "zomm"
   ]
 }
