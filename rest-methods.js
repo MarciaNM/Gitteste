@@ -11,6 +11,7 @@ const get = (endPoint, urlParam, requestInit) => {
     },
     ...requestInit,
   });
+};
   const post = (endPoint, body, requestInit = {}) => {
     const url = API_URL + '/' + endPoint;
     return fetch(url, {
@@ -23,13 +24,7 @@ const get = (endPoint, urlParam, requestInit) => {
     });
   };
   (async () => {
-    // GET -Ler
-    //const userGetResponse = await get('users/502');
-    //const user = await userGetResponse.json();
-    //console.log(user);
-
-    // POST - Criar
-    const userResponse = await post('users', {
+      const userResponse = await post('users', {
       id: '7000',
       firstName: 'CRIADO - Márcia',
       lastName: 'CRIADO -Carvalho',
