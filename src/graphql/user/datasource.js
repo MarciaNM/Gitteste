@@ -1,27 +1,27 @@
-import  {  RESTDataSource  }  from  'apollo-datasource-rest' ;
-import  {  makeUserDataLoader  }  from  './dataloaders' ;
+import { RESTDataSource } from 'apollo-datasource-rest';
+import { makeUserDataLoader } from './dataloaders';
 
 
-export  class  UsersApi  extends  RESTDataSource  {
-  construtor( )  {
+export class UsersApi extends RESTDataSource {
+  constructor() {
     super();
-    this.baseURL  =  processo . env . API_URL  +  '/users/' ;
-    this.dataLoader  =  makeUserDataLoader ( this .getUsers . bind ( this ) ) ;
+    this.baseURL = process.env.API_URL + '/users/';
+    this.dataLoader = makeUserDataLoader(this.getUsers.bind(this));
   }
 
-  async  getUsers ( urlParams  =  { } )  {
-    devolva  isso . get ( '' ,  urlParams ,  {
-      cacheOptions : {  ttl : 0  } ,
-    } ) ;
+  async getUsers(urlParams = {}) {
+    return this.get('', urlParams, {
+      cacheOptions: { ttl: 0 },
+    });
   }
 
-    async  getUser ( id )  {
-      return  this . get ( id ,  undefined ,  {
-      cacheOptions : {  ttl : 0  } ,
-    } ) ;
+  async getUser(id) {
+    return this.get(id, undefined, {
+      cacheOptions: { ttl: 0 },
+    });
   }
 
-  batchLoadById ( id )  {
-    return  this . dataLoader . load( id ) ;
+  batchLoadById(id) {
+    return this.dataLoader.load(id);
   }
 }
