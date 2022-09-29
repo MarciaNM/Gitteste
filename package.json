@@ -5,9 +5,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon -e 'js' -r dotenv/config -r sucrase/register src/index.js",
-    "server": "json-server --watch db.json",
-    "build": "rimraf ./dist && sucrase ./src -d ./dist --transforms imports",
-    "start": "npm run server & node -r dotenv/config dist/index.js"
+    "server": "json-server --watch db.json"
   },
   "repository": {
     "type": "git",
@@ -17,6 +15,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "node-rfc": "file:../node-rfc-main",
     "apollo-datasource": "^0.9.0",
     "apollo": "^2.34.0",
     "apollo-datasource-rest": "^3.7.0",
@@ -43,5 +42,10 @@
     "nodemon": "^2.0.20",
     "prettier": "^2.7.1",
     "sucrase": "^3.27.0"
-  }
+  },
+  "bugs": {
+    "url": "https://github.com/MarciaNM/Gitteste/issues"
+  },
+  "homepage": "https://github.com/MarciaNM/Gitteste#readme",
+  "description": ""
 }
