@@ -4,8 +4,10 @@
   "main": "src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon -r dotenv/config -r sucrase/register src/index.js",
-    "server": "json-server --watch db.json"
+    "dev": "nodemon -e 'js' -r dotenv/config -r sucrase/register src/index.js",
+    "server": "json-server --watch db.json",
+    "build": "rimraf ./dist && sucrase ./src -d ./dist --transforms imports",
+    "start": "npm run server & node -r dotenv/config dist/index.js"
   },
   "repository": {
     "type": "git",
@@ -14,20 +16,18 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/MarciaNM/Gitteste/issues"
-  },
-  "homepage": "https://github.com/MarciaNM/Gitteste#readme",
   "dependencies": {
-    "@apollo/gateway": "^2.0.0",
+    "apollo-datasource": "^0.9.0",
     "apollo": "^2.34.0",
     "apollo-datasource-rest": "^3.7.0",
     "apollo-server": "^3.10.2",
-    "apollo-server-caching" : " ^0.7.0 ",
+    "apollo-server-caching": " ^0.7.0 ",
+    "bcrypt": "^5.0.1",
     "dataloader": "^2.1.0",
     "dotenv": "^16.0.2",
     "graphql": "^16.6.0",
     "json-server": "^0.17.0",
+    "jsonwebtoken": "^8.5.1",
     "live": "^0.1.25-beta.0",
     "node-fetch": "^2.6.7",
     "nodemailer": "^6.7.8",
@@ -37,19 +37,11 @@
     "share": "^0.7.40"
   },
   "devDependencies": {
-    "@babel/eslint-parser": "^7.19.1",
-    "@types/node": "^18.7.21",
-    "@typescript-eslint/eslint-plugin": "^5.37.0",
-    "@typescript-eslint/parser": "^5.37.0",
-    "babel-eslint": "^10.1.0",
     "eslint": "^8.23.1",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.2.1",
-    "eslint-plugin-react": "^7.31.8",
-    "eslint-plugin-react-hooks": "^4.6.0",
     "nodemon": "^2.0.20",
     "prettier": "^2.7.1",
     "sucrase": "^3.27.0"
-  },
-  "description": ""
+  }
 }
