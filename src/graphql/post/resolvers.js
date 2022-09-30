@@ -1,15 +1,15 @@
 // Query resolvers
-const post = async (_, { id }, { dataSources }) => {
-  const post = dataSources.postApi.getPost(id);
+const post = async (_, { id }, { dataSource }) => {
+  const post = dataSource.postApi.getPost(id);
   return post;
 };
-const posts = async (_, { input }, { dataSources }) => {
-  const posts = dataSources.postApi.getPosts(input);
+const posts = async (_, { input }, { dataSource }) => {
+  const posts = dataSource.postApi.getPosts(input);
   return posts;
 };
 
 // Mutation resolvers
-const createPost = async(_, args, {dataSources}) => {
+const createPost = async (_, args, { dataSource }) => {
   console.log(args);
   return {
     id: '601',
@@ -29,6 +29,6 @@ const user = async ({ userId }, _, { userDataloader }) => {
 
 export const postResolvers = {
   Query: { post, posts },
-  Mutation: {createPost},
+  Mutation: { createPost },
   Post: { user },
 };

@@ -8,9 +8,9 @@ const server = new ApolloServer({
   typeDefs,
   resolvers,
   context,
-  dataSources: () => {
+  dataSource: () => {
     return {
-     postApi: new PostsApi(),
+      postApi: new PostsApi(),
     };
   },
 });
