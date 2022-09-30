@@ -8,7 +8,6 @@ export const postTypeDefs = gql`
 
   extend type Mutation {
     createPost(data: CreatePostInput!): Post!
-
   }
 
   type Post {
