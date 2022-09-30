@@ -9,8 +9,8 @@ const user = async (_, { id }, { getUsers }) => {
   return user;
 };
 
-const posts = ({ id }, _, { dataSource }) => {
-  return dataSource.postApi.batchLoadByUserId(id);
+const posts = ({ id }, _, { dataSources }) => {
+  return dataSources.postApi.batchLoadByUserId(id);
 };
 
 export const userResolvers = {
