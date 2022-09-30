@@ -1,8 +1,11 @@
 import { gql } from 'apollo-server';
+
 import { apiFiltersResolvers } from './api-filters/resolvers';
 import { apiFiltersTypeDefs } from './api-filters/typedefs';
+
 import { postResolvers } from './post/resolvers';
 import { postTypeDefs } from './post/typeDefs';
+
 import { userResolvers } from './user/resolvers';
 import { userTypeDefs } from './user/typeDefs';
 
@@ -19,8 +22,8 @@ const rootResolvers = {
     _empty: () => true,
   },
   Mutation: {
-  _empty: () => true,
-},
+    _empty: () => true,
+  },
 };
 
 export const typeDefs = [
