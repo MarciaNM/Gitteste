@@ -18,6 +18,9 @@ const rootResolvers = {
   Query: {
     _empty: () => true,
   },
+  Mutation: {
+  _empty: () => true,
+},
 };
 
 export const typeDefs = [

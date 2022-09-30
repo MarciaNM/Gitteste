@@ -1,6 +1,6 @@
 import { ApolloServer } from 'apollo-server';
 import { PostsApi } from './graphql/post/datasources';
-import { UsersApi } from './graphql/schema/user/datasources';
+import { UsersApi } from './graphql/user/datasources';
 import { resolvers, typeDefs } from './graphql/schema';
 import { context } from './graphql/user/context';
 
@@ -18,3 +18,5 @@ const server = new ApolloServer({
 server.listen(7956).then(({ url }) => {
   console.log(`Server Listening on url ${url}`);
 });
+
+
