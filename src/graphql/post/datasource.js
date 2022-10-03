@@ -17,6 +17,11 @@ export class PostsApi extends RESTDataSource {
       cacheOptions: { ttl: 60 },
     });
   }
+  async createPost(postData) {
+    return createPostFn.post(postData, this);
+
+  }
+
   batchLoadById(id) {
     return this.dataLoader.load(id);
   }

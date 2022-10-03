@@ -12,19 +12,14 @@ const posts = async (_, { input }, { dataSources }) => {
 const createPost = async (_, args, { dataSources }) => {
   console.log(args);
   return {
-    id: '601',
-    title: 'Nihil nunquam eum iuri consequatur',
-    body: 'Menor',
-    userId: '502',
-    indexRef: '19',
-    createAt: '2017-04-26T19:39:05.420Z',
+    return dataSources.postApi.createPost(data);
   };
 };
 
 
 // Field resolver
-const user = async ({ userId }, _, { dataSources }) => {
-  return dataSources.userApi.batchLoadById(userId);
+const user = async ({ userId }, _, { userDataloader }) => {
+  return userDataloader.userApi.batchLoadById(userId);
 };
 
 export const postResolvers = {
