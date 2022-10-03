@@ -11,6 +11,7 @@ const server = new ApolloServer({
   dataSources: () => {
     return {
       postApi: new PostsApi(),
+      userApi: new UsersApi(),
     };
   },
 });

@@ -16,6 +16,7 @@ export class UsersApi extends RESTDataSource {
   }
 
   async getUser(id) {
+    console.log('getUser: ', id)
     return this.get(id, undefined, {
       cacheOptions: { ttl: 0 },
     });

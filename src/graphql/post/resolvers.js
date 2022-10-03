@@ -9,9 +9,11 @@ const posts = async (_, { input }, { DataSource }) => {
 };
 
 // Mutation resolvers
-const createPost = async (_, data, { DataSource }) => {
-  return DataSource.postApi.createPost(data);
-};
+async function createPost(_, {data}, ctx) {
+  const  { dataSources } = ctx
+  // console.log('dataSources :', dataSources)
+  return dataSources.postApi.createPost(data);
+}
 
 
 // Field resolver

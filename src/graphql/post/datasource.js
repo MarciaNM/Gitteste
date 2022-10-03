@@ -1,5 +1,6 @@
 import { RESTDataSource } from 'apollo-datasource-rest';
 import { makePostDataLoader } from '../post/dataloaders';
+import { createPostFn } from './utils/post-repository'
 
 export class PostsApi extends RESTDataSource {
   constructor() {
@@ -18,6 +19,7 @@ export class PostsApi extends RESTDataSource {
     });
   }
   async createPost(postData) {
+    // console.log(postData)
     return createPostFn(postData, this);
 
   }
