@@ -9,17 +9,14 @@ const posts = async (_, { input }, { dataSources }) => {
 };
 
 // Mutation resolvers
-const createPost = async (_, args, { dataSources }) => {
-  console.log(args);
-  return {
-    return dataSources.postApi.createPost(data);
-  };
+const createPost = async (_, data, { dataSources }) => {
+  return dataSources.postApi.createPost(data);
 };
 
 
 // Field resolver
-const user = async ({ userId }, _, { userDataloader }) => {
-  return userDataloader.userApi.batchLoadById(userId);
+const user = async ({ userId }, _, { dataSources }) => {
+  return dataSources.userApi.batchLoadById(userId);
 };
 
 export const postResolvers = {

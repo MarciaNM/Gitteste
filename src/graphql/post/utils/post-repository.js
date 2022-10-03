@@ -13,7 +13,7 @@ export const createPostFn = async (posData, dataSource) => {
 
 const userExists = async (userId, dataSource) => {
   try {
-    await dataSource.context.DataSource.userApi.get(userId);
+    await dataSource.context.dataSources.userApi.get(userId);
   catch (e) {
       throw new ValidationError('User ${userId} does not exist');
     }
@@ -24,7 +24,7 @@ const userExists = async (userId, dataSource) => {
 
     await userExists(userId, dataSource);
 
-    const indexRef = await dataSource.get('', {
+    const indexRefPost= await dataSource.get('', {
       _limit: 1,
       _sort: 'indexRef',
       _order: 'desc'
