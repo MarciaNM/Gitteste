@@ -4,7 +4,7 @@ export const createPostFn = async (postData, DataSource) => {
   const postInfo = await createPostInfo(postData, DataSource);
   const { title, body, userId } = postInfo;
 
-  if ( !title || !body || !userId ) {
+  if (!title || !body || !userId) {
     throw new ValidationError('you have to send title, body e userId');
   }
   return await DataSource.post('', { ...postInfo });
@@ -13,7 +13,7 @@ export const createPostFn = async (postData, DataSource) => {
 const userExists = async (userId, DataSource) => {
   try {
     console.log(DataSource.context.dataSources)
-    await DataSource.context.dataSources.userApi.get(userId);
+    await DataSource.context.dataSources.UsersApi.get(userId);
   } catch (e) {
     console.log(e)
     throw new ValidationError(`User ${userId} does not exist`);
