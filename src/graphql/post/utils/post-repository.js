@@ -13,9 +13,9 @@ export const createPostFn = async (postData, DataSource) => {
 const userExists = async (userId, DataSource) => {
   try {
     console.log(DataSource.context.dataSources)
-    await DataSource.context.dataSources.UsersApi.get(userId);
+    // await DataSource.context.dataSources.userApi.get(userId);
   } catch (e) {
-    console.log(e)
+    // console.log(e)
     throw new ValidationError(`User ${userId} does not exist`);
   }
 };

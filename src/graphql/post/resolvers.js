@@ -14,8 +14,9 @@ const createPost = async (_, { data }, { dataSources }) => {
 };
 
 // Field resolver
-const user = async ({ userId }, _, { datasources }) => {
-  return DataSource.userApi.batchLoadById(userId);
+const user = async ({ userId }, _, {dataSources}) => {
+  // console.log(dataSources)
+  return dataSources.userApi.batchLoadById(userId);
 };
 
 export const postResolvers = {
