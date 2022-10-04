@@ -10,7 +10,7 @@ const posts = async (_, { input }, { DataSource }) => {
 
 // Mutation resolvers
 const createPost = async (_, { data }) => {
-  return DataSource.PostsApi.createPost(data);
+  return dataSources.PostsApi.createPost(data);
 };
 
 // Field resolver
