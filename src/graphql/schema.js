@@ -13,7 +13,12 @@ const rootTypeDefs = gql`
   type Query {
     _empty: Boolean
   }
+
   type Mutation {
+    _empty: Boolean
+  }
+# teste aula 50 
+  type Subscription {
     _empty: Boolean
   }
 `;
