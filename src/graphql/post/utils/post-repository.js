@@ -36,6 +36,14 @@ export const updatePostFn = async (postId, postData, DataSource) => {
   }
   return DataSource.patch(postId, { ...postData });
 };
+// aula 48
+export const deletePostFn = async (postId, DataSource) => {
+  if (!postId) throw new ValidationError('Missing postId');
+
+  const deleted = await DataSource.dele(postId);
+  return !! deleted; // !! converte para boolean o delete
+};
+
 const userExists = async (userId, DataSource) => {
   try {
     console.log(DataSource.context.dataSources)
