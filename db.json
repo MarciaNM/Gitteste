@@ -547,25 +547,9 @@
       "title": " o titulo",
       "body": "o conteúdo",
       "userId": "592",
-      "indexRef": 45,
-      "createdAt": "2022-10-04T19:26:02.428Z",
-      "id": "DAGuZ5q"
-    },
-    {
-      "title": " o titulo",
-      "body": "o conteúdo",
-      "userId": "592",
       "indexRef": 46,
       "createdAt": "2022-10-04T19:26:51.477Z",
       "id": "KAR_Yme"
-    },
-    {
-      "title": " o titulo",
-      "body": "o conteúdo",
-      "userId": "592",
-      "indexRef": 47,
-      "createdAt": "2022-10-04T19:27:16.281Z",
-      "id": "S6tbFI-"
     },
     {
       "title": " o titulo",
@@ -582,6 +566,14 @@
       "indexRef": 49,
       "createdAt": "2022-10-05T12:11:45.020Z",
       "id": "W4q2DBX"
+    },
+    {
+      "title": "UPDATE- o título 2 ",
+      "body": "UPDATE- o conteúdo 2 ",
+      "userId": "903",
+      "indexRef": 50,
+      "createdAt": "2022-10-05T16:22:17.853Z",
+      "id": "NmxsAbf"
     }
   ],
   "comments": [
