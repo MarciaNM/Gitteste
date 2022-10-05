@@ -1,5 +1,6 @@
 import { ValidationError } from 'apollo-server';
 
+
 export const createPostFn = async (postData, DataSource) => {
   const postInfo = await createPostInfo(postData, DataSource);
   const { title, body, userId } = postInfo;
@@ -11,16 +12,30 @@ export const createPostFn = async (postData, DataSource) => {
 };
 //criação do post update aula 47
 export const updatePostFn = async (postId, postData, DataSource) => {
-  if (!postId){
+  if (!postId) {
     throw new ValidationError('Missing postId');
   }
-  if (postData?.userId) {
-    await userExists(postData.userId, DataSource);
-  }
-  
-  return DataSource.patch(postId, {...postData});
-};
+  const postInfo = await createPostInfo(postData, DataSource);
+  const { title, body, userId } = postInfo;
 
+  if (typeof title !== 'undefined') {
+    if (!title) {
+      throw new ValidationError('title missing');
+
+    }
+  }
+  if (typeof body !== 'undefined') {
+    if (!body) {
+      throw new ValidationError('body missing');
+    }
+  }
+  if (typeof userId !== 'undefined') {
+    if (!userId) {
+      throw new ValidationError('userId missing');
+    }
+  }
+  return DataSource.patch(postId, { ...postData });
+};
 const userExists = async (userId, DataSource) => {
   try {
     console.log(DataSource.context.dataSources)

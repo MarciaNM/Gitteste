@@ -25,6 +25,6 @@ const user = async ({ userId }, _, {dataSources}) => {
 
 export const postResolvers = {
   Query: { post, posts },
-  Mutation: { createPost, updatePost },
+  Mutation: { createPost, updatePost  },
   Post: { user },
 };
