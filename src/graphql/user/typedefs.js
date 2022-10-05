@@ -5,6 +5,13 @@ export const userTypeDefs = gql`
     user(id: ID!): User!
     users(input: ApiFiltersInput): [User!]!
   }
+  # aula 50 criação mutation do user
+  extend type Mutation {
+    createUSer(data: CreateUserInput!): Post!
+    updateUser(userId: ID!, data: UpdateUSerInput!): Post!
+    deleteUser(userId: ID!): Boolean!
+  }
+
   type User {
     id: ID!
     firstName: String!
@@ -13,5 +20,17 @@ export const userTypeDefs = gql`
     indexRef: Int!
     createdAt: String!
     posts: [Post!]!
+  }
+    # aula 50 criação mutation do user
+  input CreateUserInput {
+    firstName: String!
+    lastName: String!
+    userName: String!
+  }
+    # aula 50 criação mutation do user
+  input UpdateUserInput {
+    firstName: String!
+    lastName: String!
+    userName: String!
   }
 `;
