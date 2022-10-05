@@ -23,6 +23,11 @@ export class PostsApi extends RESTDataSource {
     return createPostFn(postData, this);
 
   }
+  // aula 47
+  async updatePost(postId, postData) {
+    return updatePostFn(postId, postData, this);
+
+  }
 
   batchLoadById(id) {
     return this.dataLoader.load(id);

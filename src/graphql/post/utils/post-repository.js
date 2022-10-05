@@ -9,6 +9,17 @@ export const createPostFn = async (postData, DataSource) => {
   }
   return await DataSource.post('', { ...postInfo });
 };
+//criação do post update aula 47
+export const updatePostFn = async (postId, postData, DataSource) => {
+  if (!postId){
+    throw new ValidationError('Missing postId');
+  }
+  if (postData?.userId) {
+    await userExists(postData.userId, DataSource);
+  }
+  
+  return DataSource.patch(postId, {...postData});
+};
 
 const userExists = async (userId, DataSource) => {
   try {

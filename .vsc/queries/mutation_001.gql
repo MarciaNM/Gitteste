@@ -1,0 +1,22 @@
+
+
+mutation CREATE_POST {
+  createPost(data: {
+    title: " o titulo"
+    body: "o conteúdo"
+    userId:"592"
+
+  }) {
+    id
+    title
+    body
+    user {
+      firstName
+    }
+    indexRef
+    createdAt
+  }
+
+}
+
+
