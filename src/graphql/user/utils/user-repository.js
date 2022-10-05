@@ -69,7 +69,7 @@ const validateUserPassword = (password) => {
   if (!password.match(strongPasswordRegex)) {
     throw new UserInputError(
       'Password must contain at least: ' +
-        'One lower case letter, one upper case letter and one number.',
+      'One lower case letter, one upper case letter and one number.',
     );
   }
 };

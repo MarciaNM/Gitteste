@@ -8,7 +8,7 @@ export const userTypeDefs = gql`
   # aula 50 criação mutation do user
   extend type Mutation {
     createUSer(data: CreateUserInput!): Post!
-    updateUser(userId: ID!, data: UpdateUSerInput!): Post!
+    updateUser(userId: ID!, data: UpdateUserInput!): Post!
     deleteUser(userId: ID!): Boolean!
   }
 
