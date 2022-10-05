@@ -1,0 +1,22 @@
+# criação update_post aula 47
+
+mutation UPDATE_POST {
+  updatePost(
+    postId:"W4q2DBX"
+    data: {
+    title: "UPDATE- o título"
+    body: "UPDATE- o conteúdo"
+    userId:"903"
+
+  }) {
+    id
+    title
+    body
+    user {
+      firstName
+    }
+    indexRef
+    createdAt
+  }
+
+}
