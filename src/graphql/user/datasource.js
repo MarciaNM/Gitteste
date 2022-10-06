@@ -17,13 +17,13 @@ export class UsersApi extends RESTDataSource {
     });
   }
   // inserido aula 50
-  async createUser(Data) {
-    return createUserFn(Data, this);
+  async createUser(data) {
+    return createUserFn(data, this);
 
   }
   // aula 50
-  async updateUser(userId, Data) {
-    return updateUserFn(userId, Data, this);
+  async updateUser(userId, data) {
+    return updateUserFn(userId, data, this);
   }
 
   // aula 50
