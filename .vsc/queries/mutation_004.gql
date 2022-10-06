@@ -1,0 +1,40 @@
+mutation CREATE_USER {
+  createUser(
+    data: { firstName:  }
+  ) {
+    id
+    firstName
+    lastName
+    userName
+    indexRef
+    createdAt
+    posts {
+      id
+    }
+  }
+}
+
+mutation UPDATE_USER {
+  updateUser(
+    userId:
+    data: {
+      firstName:
+      lastName:
+      userName:
+    }
+  ) {
+    id
+    firstName
+    lastName
+    userName
+    indexRef
+    createdAt
+    posts {
+      id
+    }
+  }
+}
+
+mutation DELETE_USER {
+  deleteUser(userId: )
+}
