@@ -14,7 +14,7 @@ export const createUserFn = async (userData, DataSource) => {
 
   if (typeof foundUser !== 'undefined ') {
     throw new ValidationError(
-      `User ${userData.userName} has already been taken`,
+      `UserName ${userData.userName} has already been taken`,
     );
   }
   return DataSource.post('', {
