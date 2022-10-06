@@ -47,7 +47,7 @@ export const deleteUserFn = async (userId, DataSource) => {
 };
 
 const userExists = async (userName, DataSource) => {
-  // /users/?userName=nomeBuscado
+  console.log(DataSource.context.dataSources)
   const found = await DataSource.get('', {
     userName,
   });
