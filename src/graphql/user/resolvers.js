@@ -1,10 +1,10 @@
 // Query resolvers
 const users = async (_, { input }, { dataSources }) => {
-  const users = await dataSources.userApi.getUsers(input);
+  const users = dataSources.userApi.getUsers(input);
   return users;
 };
 const user = async (_, { id }, { dataSources }) => {
-  const user = await dataSources.userApi.getUser(id);
+  const user = dataSources.userApi.getUser(id);
   return user;
 };
 
@@ -19,7 +19,7 @@ const deleteUser = async (_, { userId }, { dataSources }) => {
   return dataSources.userApi.deleteUser(userId);
 };
 // Field resolvers
-const posts = ({ id }, _, { dataSources }) => {
+const posts = async ({ id }, _, { dataSources }) => {
   return dataSources.postApi.batchLoadByUserId(id);
 };
 
