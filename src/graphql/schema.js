@@ -17,10 +17,6 @@ const rootTypeDefs = gql`
   type Mutation {
     _empty: Boolean
   }
-# teste aula 50
-# type Subscription {
-  #  _empty: Boolean
- # }
 `;
 
 const rootResolvers = {

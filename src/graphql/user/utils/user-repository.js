@@ -61,18 +61,6 @@ const validateUserName = (userName) => {
   }
 };
 
-//const validateUserPassword = (password) => {
-// Letra minúscula, letra maiúscula e número
-//const strongPasswordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{6,30}$/;
-
-//if (!password.match(strongPasswordRegex)) {
-//throw new UserInputError(
-// 'Password must contain at least: ' +
-//'One lower case letter, one upper case letter and one number.',
-//);
-//}
-//};
-
 const checkUserFields = async (user, allFieldsRequired = false) => {
   const userFields = ['firstName', 'lastName', 'userName'];
 
@@ -87,20 +75,9 @@ const checkUserFields = async (user, allFieldsRequired = false) => {
       validateUserName(user[field]);
     }
 
-   // if (field === 'password') {
-    //  validateUserPassword(user[field]);
-    //}
-
     if (!user[field]) {
       throw new Error(`Missing ${field}`);
     }
   }
-
-  //if (user.password && !user.passwordHash) {
-  // const { password } = user;
-  // const passwordHash = await bcrypt.hash(password, 12);
-  //user.passwordHash = passwordHash;
-  // delete user['password'];
-  // }
 };
 
