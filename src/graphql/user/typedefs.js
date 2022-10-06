@@ -7,7 +7,7 @@ export const userTypeDefs = gql`
   }
   # aula 50 criação mutation do user
   extend type Mutation {
-    createUSer(data: CreateUserInput!): User!
+    createUser(data: CreateUserInput!): User!
     updateUser(userId: ID!, data: UpdateUserInput!): User!
     deleteUser(userId: ID!): Boolean!
   }

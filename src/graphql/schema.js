@@ -2,10 +2,8 @@ import { gql } from 'apollo-server';
 
 import { apiFiltersResolvers } from './api-filters/resolvers';
 import { apiFiltersTypeDefs } from './api-filters/typedefs';
-
 import { postResolvers } from './post/resolvers';
 import { postTypeDefs } from './post/typedefs';
-
 import { userResolvers } from './user/resolvers';
 import { userTypeDefs } from './user/typedefs';
 
