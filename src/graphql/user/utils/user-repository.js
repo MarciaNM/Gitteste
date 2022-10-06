@@ -1,8 +1,7 @@
-//import bcrypt from 'bcrypt';
 import { ValidationError } from 'apollo-server';
 
 export const createUserFn = async (userData, DataSource) => {
-  await checkUserFields(userData, true);
+ checkUserFields(userData, true);
 
   const indexRefUser = await DataSource.get('', {
     _limit: 1,
@@ -25,7 +24,7 @@ export const createUserFn = async (userData, DataSource) => {
   });
 };
 export const updateUserFn = async (userId, userData, DataSource) => {
-  await checkUserFields(userData, false);
+   checkUserFields(userData, false);
 
   if (!userId) throw new ValidationError('Missing userId');
 
@@ -75,7 +74,7 @@ const validateUserName = (userName) => {
 //};
 
 const checkUserFields = async (user, allFieldsRequired = false) => {
-  const userFields = ['firstName', 'lastName', 'userName', 'password'];
+  const userFields = ['firstName', 'lastName', 'userName'];
 
   for (const field of userFields) {
     if (!allFieldsRequired) {
@@ -88,9 +87,9 @@ const checkUserFields = async (user, allFieldsRequired = false) => {
       validateUserName(user[field]);
     }
 
-    if (field === 'password') {
-      validateUserPassword(user[field]);
-    }
+   // if (field === 'password') {
+    //  validateUserPassword(user[field]);
+    //}
 
     if (!user[field]) {
       throw new Error(`Missing ${field}`);
