@@ -61,7 +61,7 @@ const validateUserName = (userName) => {
   }
 };
 
-const checkUserFields = async (user, allFieldsRequired = false) => {
+const checkUserFields = (user, allFieldsRequired = false) => {
   const userFields = ['firstName', 'lastName', 'userName'];
 
   for (const field of userFields) {
