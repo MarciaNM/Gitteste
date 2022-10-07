@@ -20,7 +20,7 @@ const deleteUser = async (_, { userId }, { dataSources }) => {
 };
 // Field resolvers
 const posts = async ({ id }, _, { dataSources }) => {
-  return dataSources.postApi.batchLoadByUserId(id);
+  return dataSources.postApi.batchLoadById(id);
 };
 
 export const userResolvers = {
