@@ -29,6 +29,7 @@ export const updateUserFn = async (userId, userData, DataSource) => {
    checkUserFields(userData, false);
 
   if (!userId) throw new ValidationError('Missing userId');
+
 // passo 12 confere o se o usuário já tem
   if (userData.userName) {
     const foundUser = await userExists(userData.userName, DataSource);
