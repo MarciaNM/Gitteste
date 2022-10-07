@@ -613,6 +613,54 @@
       "indexRef": 52,
       "createdAt": "2022-10-07T17:27:55.774Z",
       "id": "Qw276sJ"
+    },
+    {
+      "title": "o título via fetch",
+      "body": "o body via fetch",
+      "userId": "602",
+      "indexRef": 53,
+      "createdAt": "2022-10-07T18:37:20.870Z",
+      "id": "xmd4RtN"
+    },
+    {
+      "title": "title 1",
+      "body": "body 1",
+      "userId": "602",
+      "indexRef": 54,
+      "createdAt": "2022-10-07T19:03:41.947Z",
+      "id": "MSD_Ckf"
+    },
+    {
+      "title": "title 1",
+      "body": "body 1",
+      "userId": "602",
+      "indexRef": 55,
+      "createdAt": "2022-10-07T19:06:05.468Z",
+      "id": "rA_GN_m"
+    },
+    {
+      "title": "title 1",
+      "body": "body 1",
+      "userId": "602",
+      "indexRef": 56,
+      "createdAt": "2022-10-07T19:08:28.173Z",
+      "id": "7VLeqJA"
+    },
+    {
+      "title": "title 1",
+      "body": "body 1",
+      "userId": "602",
+      "indexRef": 57,
+      "createdAt": "2022-10-07T19:14:41.861Z",
+      "id": "k855IKC"
+    },
+    {
+      "title": "title 2",
+      "body": "body 2",
+      "userId": "903",
+      "indexRef": 58,
+      "createdAt": "2022-10-07T19:14:42.045Z",
+      "id": "i-4XQgA"
     }
   ],
   "comments": [
