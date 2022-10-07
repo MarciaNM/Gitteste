@@ -1,0 +1,4 @@
+# deletando usuário do db.js
+mutation DELETE_USER {
+  deleteUser(userId: )
+}

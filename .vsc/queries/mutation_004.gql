@@ -1,3 +1,4 @@
+# criação de usuário no db.js
 mutation CREATE_USER {
   createUser(
     data: { firstName:  }
@@ -14,27 +15,3 @@ mutation CREATE_USER {
   }
 }
 
-mutation UPDATE_USER {
-  updateUser(
-    userId:
-    data: {
-      firstName:
-      lastName:
-      userName:
-    }
-  ) {
-    id
-    firstName
-    lastName
-    userName
-    indexRef
-    createdAt
-    posts {
-      id
-    }
-  }
-}
-
-mutation DELETE_USER {
-  deleteUser(userId: )
-}
