@@ -4,6 +4,7 @@ import { UsersApi } from './graphql/user/datasource';
 import { resolvers, typeDefs } from './graphql/schema';
 import { context } from './graphql/user/context';
 
+
 const server = new ApolloServer({
   typeDefs,
   resolvers,
@@ -12,7 +13,7 @@ const server = new ApolloServer({
     return {
       postApi: new PostsApi(),
       userApi: new UsersApi(),
-      loginApi: new LoginApi(), // aula 58
+      loginApi: new loginApi(), // aula 58
     };
   },
 });
