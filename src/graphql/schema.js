@@ -33,10 +33,12 @@ export const typeDefs = [
   userTypeDefs,
   postTypeDefs,
   apiFiltersTypeDefs,
+  loginTypeDefs, // aula 58
 ];
 export const resolvers = [
   rootResolvers,
   userResolvers,
   postResolvers,
   apiFiltersResolvers,
+  loginResolvers, // aula 58
 ];
