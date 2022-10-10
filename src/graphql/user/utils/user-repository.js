@@ -1,7 +1,8 @@
+import bcrypt from 'bcrypt';
 import { ValidationError } from 'apollo-server-errors';
 // passo 1
 export const createUserFn = async (userData, DataSource) => { //recebe os dados do usuário e o datasource(que é o this da classe dataSource do userApi )
- checkUserFields(userData, true); // 1. a função para receber os dados do usuário e se são todos requeridos
+ await checkUserFields(userData, true); // 1. a função para receber os dados do usuário e se são todos requeridos
 
   // passo 6  verifica o indexRef e acrescenta mais 1
   const indexRefUser = await DataSource.get('', {
@@ -26,7 +27,7 @@ export const createUserFn = async (userData, DataSource) => { //recebe os dados 
 };
 // passo 11
 export const updateUserFn = async (userId, userData, DataSource) => {
-   checkUserFields(userData, false);
+ await checkUserFields(userData, false);
 
   if (!userId) throw new ValidationError('Missing userId');
 
@@ -63,9 +64,22 @@ const validateUserName = (userName) => { // faz a validação do nome que inicie
     throw new ValidationError(`userName must match ${userNameRegExp}`);
   }
 };
+//aula 57.3
+const validateUserPassword = (password) => {
+// se a senha tem letra minúscula, maiúscula e número
+const strongPasswordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{6,30}$/;
+
+  if (password.match(strongPasswordRegex)){ // aula 57.4
+    throw new UserInputError(
+    'Password must contain at least:' +
+      'One lower case letter, onde upper letter and onde number.',
+    );
+  }
+};
+
 // passo 2
-const checkUserFields = (user, allFieldsRequired = false) => { //recebe os dados e se todos são requeridos
-  const userFields = ['firstName', 'lastName', 'userName'];
+const checkUserFields = async (user, allFieldsRequired = false) => { //recebe os dados e se todos são requeridos
+  const userFields = ['firstName', 'lastName', 'userName', 'password']; // password: aula 57.1
 // passo 3
   for (const field of userFields) { // se algum campo não é requerido pula para o próximo
     if (!allFieldsRequired) {
@@ -78,10 +92,19 @@ const checkUserFields = (user, allFieldsRequired = false) => { //recebe os dados
     if (field === 'userName') {
       validateUserName(user[field]);
     }
+    if (field ==='password'){ // aula 57.2
+      validateUserPassword(user[field]);
+    }
 
     if (!user[field]) {
       throw new Error(`Missing ${field}`);
     }
   }
+   // aula 57.5
+  if(user.password && !user.passwordHash){
+    const { password} = user;
+    const passwordHash = await bcrypt.hash(password, 12);
+    user.passwordHash = passwordHash;
+    delete user['password'];
+  }
 };
-

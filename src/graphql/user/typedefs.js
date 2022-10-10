@@ -26,11 +26,13 @@ export const userTypeDefs = gql`
     firstName: String!
     lastName: String!
     userName: String!
+    password: String! # aula 57 criação de senha para o usuário alterar seus dados
   }
     # aula 50 criação mutation do user
   input UpdateUserInput {
     firstName: String
     lastName: String
     userName: String
+    password: String # aula 57
   }
 `;
