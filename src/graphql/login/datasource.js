@@ -9,9 +9,8 @@ export class loginApi extends RESTDataSource {
     this.baseURL = process.env.API_URL + '/users/';
   }
 
-  async getUser(userName) {
+  async login(userName, password) {
     const user = await this.get('', { userName }, { cacheOptions: { ttl: 0 } });
-
     const found = !!user.length;
 
     if (!found) { // passo 2 se não existir usuário, mostra a mensagem de erro
