@@ -69,7 +69,9 @@ const validateUserPassword = (password) => {
 // se a senha tem letra minúscula, maiúscula e número
 const strongPasswordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{6,30}$/;
 
-  if (password.match(strongPasswordRegex)){ // aula 57.4
+//console.log(!password.match(strongPasswordRegex)); para testar se está ok.
+
+  if (!password.match(strongPasswordRegex)){ // aula 57.4
     throw new UserInputError(
     'Password must contain at least:' +
       'One lower case letter, onde upper letter and onde number.',
