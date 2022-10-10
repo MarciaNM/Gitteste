@@ -10,7 +10,7 @@ export const loginTypeDefs = gql`
     userName: String!
     password: String!
   }
-  type login {
+  type Login {
     userId: String!
     token: String!
   }
