@@ -17,9 +17,6 @@ export class loginApi extends RESTDataSource {
       throw new AuthenticationError('User does not exist.');//nada encontrado
     }
 
-    return user;
-  }
-
   // passo 1 verifica se o usuário existe
   async login(userName, password) {
     const user = await this.getUser(userName);
@@ -49,7 +46,7 @@ export class loginApi extends RESTDataSource {
   // passo 5 validar o token
   createJwtToken(payload) {
     return jwt.sign(payload, process.env.JWT_SECRET, {
-      expiresIn: '7 d',
+      expiresIn: '7d',
     });
   }
 }
