@@ -1,17 +1,13 @@
 {
   "name": "gitteste",
   "version": "1.0.0",
-  "description": "",
   "main": "src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon -e 'js' -r dotenv/config -r sucrase/register src/index.js",
-    "server": "json-server --watch db.json"
+    "server": "json-server --watch db.json",
     "build": "rimraf ./dist && sucrase ./src -d ./dist --transforms imports",
     "start": "npm run server & node -r dotenv/config dist/index.js"
-
-
-
   },
   "repository": {
     "type": "git",
@@ -51,4 +47,3 @@
   "homepage": "https://github.com/MarciaNM/Gitteste#readme",
   "description": ""
 }
-
