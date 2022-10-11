@@ -15,6 +15,7 @@ const server = new ApolloServer({
       postApi: new PostsApi(),
       userApi: new UsersApi(),
       loginApi: new LoginApi(), // aula 58
+
     };
   },
 });
