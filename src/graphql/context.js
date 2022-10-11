@@ -1,4 +1,5 @@
-import jwt from 'jsonwebtoken';
+import { jwt } from 'jsonwebtoken';
+
 const authorizeUser = (req) => {
   // req.readers.authorization
   const { headers } = req;   // requisição
@@ -8,7 +9,7 @@ const authorizeUser = (req) => {
     const [_bearer, token] = authorization.split('');
     const { userId } = jwt.verify(token, process.env.JWT_SECRET); // verifica se o token é válido
     return userId;
-  }catch (e) { // (e) se apresentar erro, dá uma string vazia
+  } catch (e) { // (e) se apresentar erro, dá uma string vazia
     return '';
   }
 };
