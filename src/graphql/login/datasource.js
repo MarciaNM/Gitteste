@@ -3,25 +3,27 @@ import jwt from 'jsonwebtoken';
 import { RESTDataSource } from 'apollo-datasource-rest';
 import { AuthenticationError } from 'apollo-server-errors';
 
-export class loginApi extends RESTDataSource {
+export class LoginApi extends RESTDataSource {
   constructor() {
     super();
     this.baseURL = process.env.API_URL + '/users/';
   }
 
-  async login(userName, password) {
+  async getUser(userName) {
     const user = await this.get('', { userName }, { cacheOptions: { ttl: 0 } });
+
     const found = !!user.length;
 
-    if (!found) { // passo 2 se não existir usuário, mostra a mensagem de erro
-      throw new AuthenticationError('User does not exist.');//nada encontrado
+    if (!found) {
+      throw new AuthenticationError('User does not exist.');
     }
 
-  // passo 1 verifica se o usuário existe
+    return user;
+  }
+
   async login(userName, password) {
     const user = await this.getUser(userName);
 
-    //passo 3
     const { passwordHash, id: userId } = user[0];
     const isPasswordValid = await this.checkUserPassword(
       password,
@@ -29,30 +31,47 @@ export class loginApi extends RESTDataSource {
     );
 
     if (!isPasswordValid) {
-      throw new AuthenticationError('Invalid password');
+      throw new AuthenticationError('Invalid password.');
     }
 
     const token = this.createJwtToken({ userId });
+    await this.patch(userId, { token }, { cacheOptions: { ttl: 0 } });
+
+    // Response Header
+   // this.context.res.cookie('jwtToken', token, {
+   //   secure: true, // Rede segura - Https
+    //  httpOnly: true, // Não deve ser acessado via código
+    //  maxAge: 1000 * 60 * 60 * 24 * 7, // 7 days
+    //  path: '/',
+    //  sameSite: 'none', // strict lax none
+    //});
 
     return {
       userId,
       token,
     };
   }
-  // passo 4 check este usuário
-  checkUserPassword(password, passwordHash) { //
-    return bcrypt.compare(password, passwordHash); // compara os dados
+
+  //async logout(userName) {
+   // const user = await this.getUser(userName);
+
+    //if (user[0].id !== this.context.loggedUserId) {
+     //throw new AuthenticationError('You are not this user.');
+    //}
+
+   // await this.patch(user[0].id, { token: '' }, { cacheOptions: { ttl: 0 } });
+   // this.context.res.clearCookie('jwtToken');
+   // return true;
+ // }
+
+  checkUserPassword(password, passwordHash) {
+    return bcrypt.compare(password, passwordHash);
   }
-  // passo 5 validar o token
+
   createJwtToken(payload) {
     return jwt.sign(payload, process.env.JWT_SECRET, {
       expiresIn: '7d',
     });
   }
 }
-
-
-
-
-
 
