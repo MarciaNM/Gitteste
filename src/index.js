@@ -14,8 +14,12 @@ const server = new ApolloServer({
     return {
       postApi: new PostsApi(),
       userApi: new UsersApi(),
+<<<<<<< HEAD
       loginApi: new LoginApi(), // aula 58
 
+=======
+      loginApi: new loginApi(), // aula 58
+>>>>>>> parent of 15c2385 (creater mutation_008)
     };
   },
 });
