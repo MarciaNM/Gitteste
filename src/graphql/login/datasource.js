@@ -35,7 +35,7 @@ export class LoginApi extends RESTDataSource {
     }
 
     const token = this.createJwtToken({ userId });
-    await this.patch(userId, { token }, { cacheOptions: { ttl: 0 } });
+    await this.patch(userId, { token }, { cacheOptions: { ttl: 0 } });//aula 61
 
     // Response Header
     // this.context.res.cookie('jwtToken', token, {
