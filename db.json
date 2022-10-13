@@ -178,7 +178,7 @@
       "indexRef": 23,
       "createdAt": "2021-05-19T10:20:13.062Z",
       "id": "ASPURjd",
-      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJBU1BVUmpkIiwiaWF0IjoxNjY1NjgzOTM4LCJleHAiOjE2NjYyODg3Mzh9.UwCgFeN17lRkTZPPRJAZZhgl-i0WLFLvSp_Luw7HRig"
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJBU1BVUmpkIiwiaWF0IjoxNjY1Njg1NDEyLCJleHAiOjE2NjYyOTAyMTJ9.qGHBhaYQPCXKIELb5vJm4p5iXmBAXWkvvcYanst-J14"
     },
     {
       "firstName": "marcia",
@@ -239,6 +239,15 @@
       "indexRef": 32,
       "createdAt": "2022-10-13T13:33:20.127Z",
       "id": "89jAso4"
+    },
+    {
+      "firstName": "Joana",
+      "lastName": "O.",
+      "userName": "Joana",
+      "passwordHash": "$2b$12$r6yqIw8sP4w1AEddwuSL1uwt.zL/AUcE25r/qI22ba.2L7meG/XOK",
+      "indexRef": 33,
+      "createdAt": "2022-10-13T18:21:53.727Z",
+      "id": "nt8qtQb"
     }
   ],
   "posts": [
