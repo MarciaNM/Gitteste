@@ -1,7 +1,7 @@
 import jwt from 'jsonwebtoken';
 import { UsersApi } from './graphql/user/datasource';
 
-const authorizeUser = async (req) => {
+const authorizeUser = async(req) => {
   //req.headers.authorization
   const { headers } = req;
   const { authorization } = headers;
@@ -14,7 +14,7 @@ const authorizeUser = async (req) => {
     const userApi = new UsersApi(); // aula 61
     userApi.initialize({}); // aula 61
     const foundUser = await userApi.getUser(userId);
-    console.log(userId);// aula 61
+   //console.log(userId); aula 61
 
     if (foundUser.token !== token) return ''; // aula 61
     return userId; // aula 61
@@ -24,7 +24,7 @@ const authorizeUser = async (req) => {
   }
 };
 
-export const context = async ({ req }) => {
+export const context = async({ req }) => {
   const loggedUserId = await authorizeUser(req);
 
   return {
