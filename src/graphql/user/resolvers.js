@@ -1,3 +1,4 @@
+import { AuthenticationError } from 'apollo-server-core';
 // Query resolvers
 const users = async (_, { input }, { dataSources }) => {
   const users = dataSources.userApi.getUsers(input);
@@ -9,10 +10,16 @@ const user = async (_, { id }, { dataSources }) => {
 };
 
 // Mutation resolvers - aula 50
-const createUser = async (_, { data }, { dataSources }) => {
+const createUser = async (_, { data }, { dataSources, loggedUserId }) => {
   return dataSources.userApi.createUser(data);
 };
 const updateUser = async (_, { userId, data }, { dataSources }) => {
+  if (!loggedUserId) { // aula 60
+    throw new AuthenticationError('you have to log in');
+  }
+  if (loggedUserId userId !==) { // aula 60
+    throw new AuthenticationError('you cannot update this user');
+  }
   return dataSources.userApi.updateUser(userId, data);
 };
 const deleteUser = async (_, { userId }, { dataSources }) => {

@@ -178,7 +178,7 @@
       "indexRef": 23,
       "createdAt": "2021-05-19T10:20:13.062Z",
       "id": "ASPURjd",
-      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJBU1BVUmpkIiwiaWF0IjoxNjIyMzYxMjcyLCJleHAiOjE2MjI5NjYwNzJ9.GKPpjSbWXbi4wddd0Wt27qHitNHUIESusGzblLuQ1X8"
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJBU1BVUmpkIiwiaWF0IjoxNjY1NjY5MjY3LCJleHAiOjE2NjYyNzQwNjd9.W4tLe4rRFgaFFOWhcp5SELwZA7xUuJjtUSmsE94p0oY"
     },
     {
       "firstName": "marcia",
@@ -230,6 +230,15 @@
       "createdAt": "2022-10-10T12:40:09.098Z",
       "id": "-Zvonxz",
       "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiItWnZvbnh6IiwiaWF0IjoxNjY1NjY1MjkwLCJleHAiOjE2NjYyNzAwOTB9.QVSYI_F-0vGsSU664StOS84vvdrm8FbD-jl9QC0yMaI"
+    },
+    {
+      "firstName": "Joana",
+      "lastName": "O.",
+      "userName": "Joana",
+      "passwordHash": "$2b$12$9Tygy5JhUy2MDviD4cT.oeESccXps2NV0sbLzKCkM9GyuFpLzMIkW",
+      "indexRef": 32,
+      "createdAt": "2022-10-13T13:33:20.127Z",
+      "id": "89jAso4"
     }
   ],
   "posts": [

@@ -1,9 +1,0 @@
-mutation LOGIN {
-  login(data: {
-    userName: ""
-    password: ""
-  }) {
-    userId
-    token
-  }
-}

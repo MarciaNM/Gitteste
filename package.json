@@ -5,7 +5,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon -e 'js' -r dotenv/config -r sucrase/register src/index.js",
-    "server": "json-server --watch db.json"
+    "server": "json-server --watch db.json",
+    "build": "rimraf ./dist && sucrase ./src -d ./dist --transforms imports",
+    "start": "npm run server & node -r dotenv/config dist/index.js"
   },
   "repository": {
     "type": "git",
@@ -15,38 +17,30 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@apollo/sandbox": "^0.3.0",
-    "@graphql-tools/schema": "^9.0.4",
-    "apollo": "^2.11.1",
     "apollo-datasource": "^0.9.0",
-    "apollo-datasource-rest": "^3.7.0",
-    "apollo-server": "^3.10.2",
-    "apollo-server-caching": " ^0.7.0 ",
-    "apollo-server-core": "^3.10.2",
+    "apollo-datasource-rest": "^0.13.0",
+    "apollo-server": "2.23.0",
+    "apollo-server-caching": "^0.7.0",
     "bcrypt": "^5.0.1",
-    "dataloader": "^2.1.0",
-    "discord-api-types": "^0.37.11",
-    "dotenv": "^16.0.2",
-    "graphql": "^16.6.0",
-    "json-server": "^0.4.2",
+    "dataloader": "^2.0.0",
+    "dotenv": "^8.5.1",
+    "graphql": "15.5.0",
+    "gulp": "^4.0.2",
+    "json-server": "^0.16.3",
     "jsonwebtoken": "^8.5.1",
-    "live": "^0.1.25-beta.0",
-    "node-fetch": "^2.6.7",
-    "node-rfc": "file:../node-rfc-main",
-    "nodemailer": "^6.7.8",
-    "npm-modules": "^1.0.1",
-    "package-lock.json": "^1.0.0",
-    "package.json": "^0.0.0",
-    "server": "^1.0.37",
+    "knex": "^0.95.6",
+    "mysql": "^2.18.1",
+    "node-fetch": "^2.6.1",
+    "rimraf": "^3.0.2",
     "share": "^0.7.40"
   },
   "devDependencies": {
-    "eslint": "^8.23.1",
-    "eslint-config-prettier": "^8.5.0",
-    "eslint-plugin-prettier": "^4.2.1",
-    "nodemon": "^2.0.20",
-    "prettier": "^2.7.1",
-    "sucrase": "^3.27.0"
+    "eslint": "^7.25.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^3.4.0",
+    "nodemon": "^2.0.7",
+    "prettier": "^2.2.1",
+    "sucrase": "^3.18.1"
   },
   "bugs": {
     "url": "https://github.com/MarciaNM/Gitteste/issues"

@@ -8,7 +8,7 @@ const post = async (_, { id }, { dataSources }) => {
 const posts = async (_, { input }, { dataSources, loggedUserId }) => {
   console.log(loggedUserId); // aula 59
   if (!loggedUserId) { // aula 59
-    throw new AuthenticationError('you have to login')
+    throw new AuthenticationError('you have to log in');
   }
 
   const posts = dataSources.postApi.getPosts(input);
