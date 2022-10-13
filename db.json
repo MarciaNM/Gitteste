@@ -228,7 +228,8 @@
       "passwordHash": "$2b$12$ieNYMOWvP0iox8D7G2ijR.dNFl/t4334Jgy0n/2PkGPlhB4wHUHYy",
       "indexRef": 31,
       "createdAt": "2022-10-10T12:40:09.098Z",
-      "id": "-Zvonxz"
+      "id": "-Zvonxz",
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiItWnZvbnh6IiwiaWF0IjoxNjY1NjY1MjkwLCJleHAiOjE2NjYyNzAwOTB9.QVSYI_F-0vGsSU664StOS84vvdrm8FbD-jl9QC0yMaI"
     }
   ],
   "posts": [

@@ -1,9 +1,16 @@
+import { AuthenticationError } from 'apollo-server-core';
+
 // Query resolvers
 const post = async (_, { id }, { dataSources }) => {
   const post = dataSources.postApi.getPost(id);
   return post;
 };
-const posts = async (_, { input }, { dataSources }) => {
+const posts = async (_, { input }, { dataSources, loggedUserId }) => {
+  console.log(loggedUserId); // aula 59
+  if (!loggedUserId) { // aula 59
+    throw new AuthenticationError('you have to login')
+  }
+
   const posts = dataSources.postApi.getPosts(input);
   return posts;
 };
@@ -20,7 +27,7 @@ const deletePost = async (_, { postId }, { dataSources }) => { //aula 48
 };
 
 // Field resolver
-const user = async ({ userId }, _, {dataSources}) => {
+const user = async ({ userId }, _, { dataSources }) => {
   // console.log(dataSources)
   return dataSources.userApi.batchLoadById(userId);
 };
