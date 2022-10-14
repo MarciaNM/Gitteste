@@ -17,7 +17,7 @@ const updateUser = async (_, { userId, data }, { dataSources, loggedUserId }) =>
   checkOwner(userId, loggedUserId); // aula 63
   return dataSources.userApi.updateUser(userId, data);
 };
-const deleteUser = async (_, { userId }, { dataSources }) => {
+const deleteUser = async (_, { userId }, { dataSources, loggedUserId }) => {
   checkOwner(userId, loggedUserId); // aula 63
   return dataSources.userApi.deleteUser(userId);
 };
