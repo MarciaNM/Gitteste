@@ -18,7 +18,7 @@ const updateUser = async (_, { userId, data }, { dataSources, loggedUserId }) =>
     throw new AuthenticationError('you have to log in');
   }
   if (loggedUserId !== userId) { // aula 60
-    throw new AuthenticationError('you cannot update this user');
+    throw new AuthenticationError('you cannot update this user.');
   }
   return dataSources.userApi.updateUser(userId, data);
 };
