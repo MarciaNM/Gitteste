@@ -1,11 +1,11 @@
 import { checkOwner } from './utils/auth-functions';
 // Query resolvers
 const users = async (_, { input }, { dataSources }) => {
-  const users = dataSources.userApi.getUsers(input);
+  const users = await dataSources.userApi.getUsers(input);
   return users;
 };
 const user = async (_, { id }, { dataSources }) => {
-  const user = dataSources.userApi.getUser(id);
+  const user = await dataSources.userApi.getUser(id);
   return user;
 };
 
@@ -16,6 +16,7 @@ const createUser = async (_, { data }, { dataSources }) => {
 const updateUser = async (_, { userId, data }, { dataSources, loggedUserId }) => {
   checkOwner(userId, loggedUserId); // aula 63
   return dataSources.userApi.updateUser(userId, data);
+
 };
 const deleteUser = async (_, { userId }, { dataSources, loggedUserId }) => {
   checkOwner(userId, loggedUserId);// aula 63

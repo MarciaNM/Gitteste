@@ -1,14 +1,17 @@
 import { AuthenticationError } from 'apollo-server-errors';
 
 export const checkIsLoggedIn = (loggedUserId) => {
-  if (!loggedUserId) { // aula 63
-    throw new AuthenticationError('you have to log in');
+  if (!!loggedUserId) {
+    throw new AuthenticationError('You have to log in');
+    //function checkIsLoggedIn (){
+    // return checkIsLoggedIn()} //retornando uma função como resultado
   }
 };
-export function checkOwner(userId, loggedUserId) {
+export const checkOwner = (userId, loggedUserId) => {
   checkIsLoggedIn(loggedUserId);
 
-  if (loggedUserId !== userId) { // aula 63
-    throw new AuthenticationError('you cannot update this user.');
+  if (loggedUserId !== userId) {
+    throw new AuthenticationError('You cannot update this user');
   }
-}
+};
+
