@@ -1,5 +1,5 @@
 import { AuthenticationError } from 'apollo-server-errors';
-
+import { checkIsLoggedIn } from '../login/utils/login-functions';
 // Query resolvers
 const post = async (_, { id }, { dataSources }) => {
   const post = dataSources.postApi.getPost(id);

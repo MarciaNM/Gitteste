@@ -1,4 +1,4 @@
-import { checkOwner } from '../login/login-functions';
+import { checkOwner } from '../login/utils/login-functions';
 // Query resolvers
 const users = async (_, { input }, { dataSources }) => {
   const users = await dataSources.userApi.getUsers(input);
