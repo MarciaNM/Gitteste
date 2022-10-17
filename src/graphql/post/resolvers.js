@@ -16,7 +16,9 @@ const posts = async (_, { input }, { dataSources, loggedUserId }) => {
 };
 
 // Mutation resolvers
-const createPost = async (_, { data }, { dataSources }) => {
+const createPost = async (_, { data }, { dataSources, loggedUserId }) => {
+  checkIsLoggedIn(loggedUserId); // aula 65, verifica se userId está logado
+  data.userId = loggedUserId; // aula 65
   return dataSources.postApi.createPost(data);
 };
 const updatePost = async (_, { postId, data }, { dataSources }) => {
