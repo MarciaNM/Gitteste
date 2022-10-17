@@ -26,7 +26,7 @@ const authorizeUser = async (req) => {
 
 export const context = async({ req }) => {
   const loggedUserId = await authorizeUser(req);
-
+  console.log(loggedUserId);
   return {
     loggedUserId,
   };
