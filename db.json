@@ -197,14 +197,6 @@
       "id": "K5Zy4W0"
     },
     {
-      "firstName": "João",
-      "lastName": "Miranda",
-      "userName": "joao-miranda1",
-      "indexRef": 28,
-      "createdAt": "2022-10-07T16:39:59.419Z",
-      "id": "GDgUSdA"
-    },
-    {
       "firstName": "Marcia",
       "lastName": "Hortencia",
       "userName": "marcia-hortencia",
@@ -224,18 +216,14 @@
       "id": "nt8qtQb"
     },
     {
-      "firstName": "HortenciaF",
+      "firstName": "HortenciaF123",
       "lastName": "F.",
       "userName": "HortenciaF",
-      "passwordHash": "$2b$12$BEOF9wbdH9fhCcRPUC2El.SgIPsRdpZKSM/AXzlnyr3/N6Q0a4JvO",
+      "passwordHash": "$2b$12$z.f242j6oO59FWF2DlymYe9gUmglaAT/eFCqeiKUZ/8D4ckUX3JqS",
       "indexRef": 34,
       "createdAt": "2022-10-13T19:38:42.415Z",
       "id": "xtLuFNb",
-<<<<<<< HEAD
-      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJ4dEx1Rk5iIiwiaWF0IjoxNjY2MDkwNzIxLCJleHAiOjE2NjY2OTU1MjF9.ear5JHlOITvH7Wn9uBPL53mUMxVTdyjPs4BxIsNwB30"
-=======
-      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJ4dEx1Rk5iIiwiaWF0IjoxNjY2MDExNjc3LCJleHAiOjE2NjY2MTY0Nzd9.3Ap1UTB0Q7KBk5j0xsK-aRm62RqvNNzQwcWH-zFzDIc"
->>>>>>> parent of e537892 ( teste)
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJ4dEx1Rk5iIiwiaWF0IjoxNjY2MTAzMTM3LCJleHAiOjE2NjY3MDc5Mzd9.tQbhp28guYDfUjfO2v_KNm0YFyGE7n_CLjY2-gkfUWg"
     },
     {
       "firstName": "Hortencia",
@@ -281,6 +269,15 @@
       "indexRef": 39,
       "createdAt": "2022-10-18T13:11:16.121Z",
       "id": "SMdqgFl"
+    },
+    {
+      "firstName": "Hortencia",
+      "lastName": "F.",
+      "userName": "HortenciaF",
+      "passwordHash": "$2b$12$eZ4zvmWAUvKUOUtHnD5enuKo0J33xgo2MlhuBVg/KSOWazHOgk0oS",
+      "indexRef": 40,
+      "createdAt": "2022-10-18T13:41:12.329Z",
+      "id": "4Vugqj7"
     }
   ],
   "posts": [
@@ -758,6 +755,27 @@
       "indexRef": 63,
       "createdAt": "2022-10-18T11:45:49.125Z",
       "id": "NF2UjJD"
+    },
+    {
+      "title": " Meu post logado!!",
+      "body": "Agora temos o sitsma de login",
+      "indexRef": 64,
+      "createdAt": "2022-10-18T14:11:48.056Z",
+      "id": "PQkddws"
+    },
+    {
+      "title": " Meu post logado!!",
+      "body": "Agora temos o sitsma de login",
+      "indexRef": 65,
+      "createdAt": "2022-10-18T14:17:51.666Z",
+      "id": "cTQYEox"
+    },
+    {
+      "title": " Meu post logado!!",
+      "body": "Agora temos o sitsma de login",
+      "indexRef": 66,
+      "createdAt": "2022-10-18T14:24:21.115Z",
+      "id": "kCh6CEu"
     }
   ],
   "comments": [

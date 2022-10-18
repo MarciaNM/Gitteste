@@ -4,6 +4,7 @@ import { ValidationError } from 'apollo-server';
 export const createPostFn = async (postData, DataSource) => {
   const postInfo = await createPostInfo(postData, DataSource);
   const { title, body, userId } = postInfo;
+  console.log(postInfo);
 
   if (!title || !body || !userId) {
     throw new ValidationError('you have to send title, body e userId');
@@ -41,7 +42,7 @@ export const deletePostFn = async (postId, DataSource) => {
   if (!postId) throw new ValidationError('Missing postId');
 
   const deleted = await DataSource.delete(postId);
-  return !! deleted; // !! converte para boolean o delete
+  return !!deleted; // !! converte para boolean o delete
 };
 
 const userExists = async (userId, DataSource) => {
