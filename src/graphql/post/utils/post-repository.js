@@ -1,28 +1,41 @@
-import { ValidationError } from 'apollo-server';
-
+import { AuthenticationError, ValidationError } from 'apollo-server';
+import { FetchError } from 'node-fetch';
 
 export const createPostFn = async (postData, DataSource) => {
   const postInfo = await createPostInfo(postData, DataSource);
   const { title, body, userId } = postInfo;
-  console.log(postInfo);
+  //console.log(postInfo);
 
   if (!title || !body || !userId) {
     throw new ValidationError('you have to send title, body e userId');
   }
   return await DataSource.post('', { ...postInfo });
 };
+
 //criação do post update aula 47
 export const updatePostFn = async (postId, postData, DataSource) => {
   if (!postId) {
     throw new ValidationError('Missing postId');
   }
-  const postInfo = await createPostInfo(postData, DataSource);
-  const { title, body, userId } = postInfo;
+  const foundPost = await DataSource.get(postId, undefine, { // aula 66
+    cacheOptions: { ttl: 0 };
+  });
+
+  if (!foundPost) { // aula 66
+    throw new FetchError('Could not find the post you are looking for.')
+  }
+  if (foundPost.userId !== DataSource.context.loggedUserId) { // aula 66
+    throw new AuthenticationError('You cannot update this post!');
+  }
+
+  console.log(foundPost);
+
+  const { userId } = foundPost; // aula 66
+  const { title, body } = postData;
 
   if (typeof title !== 'undefined') {
     if (!title) {
       throw new ValidationError('title missing');
-
     }
   }
   if (typeof body !== 'undefined') {
@@ -34,6 +47,7 @@ export const updatePostFn = async (postId, postData, DataSource) => {
     if (!userId) {
       throw new ValidationError('userId missing');
     }
+    await userExists(userId, DataSource);
   }
   return DataSource.patch(postId, { ...postData });
 };
@@ -48,9 +62,7 @@ export const deletePostFn = async (postId, DataSource) => {
 const userExists = async (userId, DataSource) => {
   try {
     console.log(DataSource.context.dataSources)
-    // await DataSource.context.dataSources.userApi.get(userId);
   } catch (e) {
-    // console.log(e)
     throw new ValidationError(`User ${userId} does not exist`);
   }
 };
