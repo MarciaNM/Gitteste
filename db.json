@@ -227,7 +227,7 @@
       "firstName": "HortenciaF",
       "lastName": "F.",
       "userName": "HortenciaF",
-      "passwordHash": "$2b$12$9uvqdM7boSrj9855/0TPKOWTjU5Qi25uVW3P5lZrthWXm5duO0Y.e",
+      "passwordHash": "$2b$12$BEOF9wbdH9fhCcRPUC2El.SgIPsRdpZKSM/AXzlnyr3/N6Q0a4JvO",
       "indexRef": 34,
       "createdAt": "2022-10-13T19:38:42.415Z",
       "id": "xtLuFNb",
@@ -268,6 +268,15 @@
       "indexRef": 38,
       "createdAt": "2022-10-17T18:41:43.944Z",
       "id": "EIkyarU"
+    },
+    {
+      "firstName": "Hortencia",
+      "lastName": "F.",
+      "userName": "HortenciaF",
+      "passwordHash": "$2b$12$KgmZnR.iOomUkSMyN/AqzOI3yBHCfnZ7yBgg0IXMkS326g1hzmp.e",
+      "indexRef": 39,
+      "createdAt": "2022-10-18T13:11:16.121Z",
+      "id": "SMdqgFl"
     }
   ],
   "posts": [
