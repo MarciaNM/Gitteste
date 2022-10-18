@@ -17,8 +17,8 @@ export const updatePostFn = async (postId, postData, DataSource) => {
   if (!postId) {
     throw new ValidationError('Missing postId');
   }
-  const foundPost = await DataSource.get(postId, undefine, { // aula 66
-    cacheOptions: { ttl: 0 };
+  const foundPost = await DataSource.get(postId, undefined, { // aula 66
+    cacheOptions: { ttl: 0 },
   });
 
   if (!foundPost) { // aula 66
