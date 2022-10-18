@@ -22,7 +22,7 @@ export const updatePostFn = async (postId, postData, DataSource) => {
   });
 
   if (!foundPost) { // aula 66
-    throw new FetchError('Could not find the post you are looking for.')
+    throw new FetchError('Could not find the post you are looking for.');
   }
   if (foundPost.userId !== DataSource.context.loggedUserId) { // aula 66
     throw new AuthenticationError('You cannot update this post!');
