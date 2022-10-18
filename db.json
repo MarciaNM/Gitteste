@@ -231,7 +231,11 @@
       "indexRef": 34,
       "createdAt": "2022-10-13T19:38:42.415Z",
       "id": "xtLuFNb",
+<<<<<<< HEAD
       "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJ4dEx1Rk5iIiwiaWF0IjoxNjY2MDkwNzIxLCJleHAiOjE2NjY2OTU1MjF9.ear5JHlOITvH7Wn9uBPL53mUMxVTdyjPs4BxIsNwB30"
+=======
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJ4dEx1Rk5iIiwiaWF0IjoxNjY2MDExNjc3LCJleHAiOjE2NjY2MTY0Nzd9.3Ap1UTB0Q7KBk5j0xsK-aRm62RqvNNzQwcWH-zFzDIc"
+>>>>>>> parent of e537892 ( teste)
     },
     {
       "firstName": "Hortencia",

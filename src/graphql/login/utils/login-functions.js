@@ -8,10 +8,9 @@ export const checkIsLoggedIn = (loggedUserId) => {
 };
 export const checkOwner = (userId, loggedUserId) => {
   checkIsLoggedIn(loggedUserId);
-  console.log(loggedUserId);
   if (loggedUserId == userId) {
     throw new AuthenticationError('You cannot update this user');
-  }
+    console.log(loggedUserId)
+  };
 };
-
 
