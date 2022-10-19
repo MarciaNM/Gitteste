@@ -13,7 +13,7 @@ export const createUserFn = async (userData, dataSources) => { //recebe os dados
   const indexRef = indexRefUser[0].indexRef + 1;
 
   const foundUser = await userExists(userData.userName, dataSources); // passo 7 verifica na função userExists se o usuário já não existe na base
-  if (typeof foundUser != 'undefined ') {   // passo 9 - se usuário encontrado mostra a mensagem que já existe
+  if (typeof foundUser !== 'undefined ') {   // passo 9 - se usuário encontrado mostra a mensagem que já existe
     throw new ValidationError(
       `UserName ${userData.userName} has already been taken`,
     );
@@ -35,7 +35,7 @@ export const updateUserFn = async (userId, userData, dataSources) => {
   if (userData.userName) {
     const foundUser = await userExists(userData.userName, dataSources);
 
-    if (typeof foundUser != 'undefined' && foundUser.id !== userId) {// se o usuário não é indefinido e se for diferente do usuário que tem, mostra o erro.
+    if (typeof foundUser !== 'undefined' && foundUser.id !== userId) {// se o usuário não é indefinido e se for diferente do usuário que tem, mostra o erro.
       throw new ValidationError(
         `userName ${userData.userName} has already been taken`,
       );
@@ -85,16 +85,16 @@ const checkUserFields = async (user, allFieldsRequired = false) => { //recebe os
   // passo 3
   for (const field of userFields) { // se algum campo não é requerido pula para o próximo
     if (!allFieldsRequired) {
-      if (typeof user[field] == 'undefined') {
+      if (typeof user[field] === 'undefined') {
         continue;
       }
     }
     // passo 4
     // se tiver a userName a função validateUserName serve para validar a descrição do nome
-    if (field == 'userName') {
+    if (field === 'userName') {
       validateUserName(user[field]);
     }
-    if (field == 'password') { // aula 57.2
+    if (field === 'password') { // aula 57.2
       validateUserPassword(user[field]);
     }
 

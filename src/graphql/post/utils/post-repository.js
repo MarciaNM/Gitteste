@@ -22,7 +22,7 @@ export const findPostOwner = async (postId, dataSources) => {
     throw new FetchError('Could not find the post you are looking for.');
   }
 
-  if (foundPost.userId != dataSources.context.loggedUserId) {
+  if (foundPost.userId !== dataSources.context.loggedUserId) {
     throw new AuthenticationError('You cannot update this post 😠!');
   }
 
@@ -37,19 +37,19 @@ export const updatePostFn = async (postId, postData, dataSources) => {
   const { userId } = await findPostOwner(postId, dataSources);
   const { title, body } = postData;
 
-  if (typeof title != 'undefined') {
+  if (typeof title !== 'undefined') {
     if (!title) {
       throw new ValidationError('title missing');
     }
   }
 
-  if (typeof body != 'undefined') {
+  if (typeof body !== 'undefined') {
     if (!body) {
       throw new ValidationError('body missing');
     }
   }
 
-  if (typeof userId != 'undefined') {
+  if (typeof userId !== 'undefined') {
     if (!userId) {
       throw new ValidationError('userId missing');
     }
