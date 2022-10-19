@@ -4,6 +4,7 @@ import { FetchError } from 'node-fetch';
 export const createPostFn = async (postData, dataSources) => {
   const postInfo = await createPostInfo(postData, dataSources);
   const { title, body, userId } = postInfo;
+  console.log(postInfo);
 
   if (!title || !body || !userId) {
     throw new ValidationError('You have to send title, body and userId');
