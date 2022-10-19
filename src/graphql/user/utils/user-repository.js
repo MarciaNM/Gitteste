@@ -2,7 +2,7 @@ import bcrypt from 'bcrypt';
 import { ValidationError } from 'apollo-server-errors';
 // passo 1
 export const createUserFn = async (userData, dataSources) => { //recebe os dados do usuário e o datasource(que é o this da classe dataSource do userApi )
- await checkUserFields(userData, true); // 1. a função para receber os dados do usuário e se são todos requeridos
+  await checkUserFields(userData, true); // 1. a função para receber os dados do usuário e se são todos requeridos
 
   // passo 6  verifica o indexRef e acrescenta mais 1
   const indexRefUser = await dataSources.get('', {
@@ -27,13 +27,13 @@ export const createUserFn = async (userData, dataSources) => { //recebe os dados
 };
 // passo 11
 export const updateUserFn = async (userId, userData, dataSources) => {
- await checkUserFields(userData, false);
+  await checkUserFields(userData, false);
 
   if (!userId) throw new ValidationError('Missing userId');
 
-// passo 12 confere o se o usuário já tem
+  // passo 12 confere o se o usuário já tem
   if (userData.userName) {
-    const foundUser = await userExists(userData.userName, DataSource);
+    const foundUser = await userExists(userData.userName, dataSources);
 
     if (typeof foundUser !== 'undefined' && foundUser.id !== userId) {// se o usuário não é indefinido e se for diferente do usuário que tem, mostra o erro.
       throw new ValidationError(
@@ -66,14 +66,14 @@ const validateUserName = (userName) => { // faz a validação do nome que inicie
 };
 //aula 57.3
 const validateUserPassword = (password) => {
-// se a senha tem letra minúscula, maiúscula e número
-const strongPasswordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{6,30}$/;
+  // se a senha tem letra minúscula, maiúscula e número
+  const strongPasswordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{6,30}$/;
 
-//console.log(!password.match(strongPasswordRegex)); para testar se está ok.
+  //console.log(!password.match(strongPasswordRegex)); para testar se está ok.
 
-  if (!password.match(strongPasswordRegex)){ // aula 57.4
+  if (!password.match(strongPasswordRegex)) { // aula 57.4
     throw new UserInputError(
-    'Password must contain at least:' +
+      'Password must contain at least:' +
       'One lower case letter, onde upper letter and onde number.',
     );
   }
@@ -82,7 +82,7 @@ const strongPasswordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{6,30}$/;
 // passo 2
 const checkUserFields = async (user, allFieldsRequired = false) => { //recebe os dados e se todos são requeridos
   const userFields = ['firstName', 'lastName', 'userName', 'password']; // password: aula 57.1
-// passo 3
+  // passo 3
   for (const field of userFields) { // se algum campo não é requerido pula para o próximo
     if (!allFieldsRequired) {
       if (typeof user[field] === 'undefined') {
@@ -94,7 +94,7 @@ const checkUserFields = async (user, allFieldsRequired = false) => { //recebe os
     if (field === 'userName') {
       validateUserName(user[field]);
     }
-    if (field ==='password'){ // aula 57.2
+    if (field === 'password') { // aula 57.2
       validateUserPassword(user[field]);
     }
 
@@ -102,9 +102,9 @@ const checkUserFields = async (user, allFieldsRequired = false) => { //recebe os
       throw new Error(`Missing ${field}`);
     }
   }
-   // aula 57.5
-  if(user.password && !user.passwordHash){
-    const { password} = user;
+  // aula 57.5
+  if (user.password && !user.passwordHash) {
+    const { password } = user;
     const passwordHash = await bcrypt.hash(password, 12);
     user.passwordHash = passwordHash;
     delete user['password'];

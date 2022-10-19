@@ -14,7 +14,6 @@ const createUser = async (_, { data }, { dataSources }) => {
   return dataSources.userApi.createUser(data);
 };
 const updateUser = async (_, { userId, data }, { dataSources, loggedUserId }) => {
-  console.log(loggedUserId);
   checkOwner(userId, loggedUserId); // aula 63
   return dataSources.userApi.updateUser(userId, data);
 };
