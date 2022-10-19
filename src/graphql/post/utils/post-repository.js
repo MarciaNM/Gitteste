@@ -52,17 +52,17 @@ export const updatePostFn = async (postId, postData, dataSources) => {
     if (!userId) {
       throw new ValidationError('userId missing');
     }
-    await userExists(userId, dataSource);
+    await userExists(userId, dataSources);
   }
 
-  return dataSource.patch(postId, { ...postData });
+  return dataSources.patch(postId, { ...postData });
 };
 
 export const deletePostFn = async (postId, dataSources) => {
   if (!postId) throw new ValidationError('Missing postId');
   await findPostOwner(postId, dataSources);
 
-  const deleted = await DataSource.delete(postId);
+  const deleted = await dataSources.delete(postId);
   return !!deleted;
 };
 
