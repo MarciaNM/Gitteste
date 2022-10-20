@@ -1,5 +1,5 @@
 import { AuthenticationError } from 'apollo-server-errors';
-
+import { checkIsLoggedIn } from '../login/utils/login-functions';
 
 // Query resolvers
 const post = async (_, { id }, { dataSources }) => {
@@ -8,7 +8,7 @@ const post = async (_, { id }, { dataSources }) => {
 };
 const posts = async (_, { input }, { dataSources, loggedUserId }) => {
   //console.log(loggedUserId); // aula 59
-  if (!loggedUserId) { // aula 59
+  if (!!loggedUserId) { // aula 59
     throw new AuthenticationError('you have to log in');
   }
 
