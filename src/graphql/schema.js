@@ -8,7 +8,7 @@ import { postResolvers } from './post/resolvers';
 import { postTypeDefs } from './post/typedefs';
 import { userResolvers } from './user/resolvers';
 import { userTypeDefs } from './user/typedefs';
-
+import { checkIsLoggedIn } from '../login/utils/login-functions';
 
 const rootTypeDefs = gql`
   type Query {

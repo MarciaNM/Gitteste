@@ -4,6 +4,7 @@ import { UsersApi } from './graphql/user/datasource';
 import { resolvers, typeDefs } from './graphql/schema';
 import { context } from './graphql/user/context';
 import { LoginApi } from './graphql/login/datasource';
+import { checkIsLoggedIn } from '../login/utils/login-functions';
 
 
 const server = new ApolloServer({
