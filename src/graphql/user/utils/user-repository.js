@@ -12,8 +12,10 @@ export const createUserFn = async (userData, DataSource) => { //recebe os dados 
   });
   const indexRef = indexRefUser[0].indexRef + 1;
 
+
   const foundUser = await userExists(userData.userName, DataSource); // passo 7 verifica na função userExists se o usuário já não existe na base
-  if (typeof foundUser !== 'undefined ') {   // passo 9 - se usuário encontrado mostra a mensagem que já existe
+
+  if (typeof foundUser !== 'undefined') {   // passo 9 - se usuário encontrado mostra a mensagem que já existe
     throw new ValidationError(
       `UserName ${userData.userName} has already been taken`,
     );
@@ -54,7 +56,7 @@ const userExists = async (userName, DataSource) => {
   const [found] = await DataSource.get('', {
     userName,
   });
-  return found; // retorna o dado encontrado
+  return found[o]; // retorna o dado encontrado
 };
 // passo 5
 const validateUserName = (userName) => { // faz a validação do nome que inicie com letras
