@@ -13,7 +13,7 @@ export class UsersApi extends RESTDataSource {
 
   async getUsers(urlParams = {}) {
     return this.get('', urlParams, {
-      cacheOptions: { ttl: 0 },
+      cacheOptions: { ttl: 60 },
     });
   }
   // inserido aula 50
@@ -33,7 +33,7 @@ export class UsersApi extends RESTDataSource {
   async getUser(id) {
    // console.log('getUser: ', id)
     return this.get(id, undefined, {
-      cacheOptions: { ttl: 0 },
+      cacheOptions: { ttl: 60 },
     });
   }
 

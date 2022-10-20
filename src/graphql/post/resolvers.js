@@ -28,6 +28,7 @@ const updatePost = async (_, { postId, data }, { dataSources, loggedUserId }) =>
   return dataSources.postApi.updatePost(postId, data);
 };
 const deletePost = async (_, { postId }, { dataSources }) => { //aula 48
+  checkIsLoggedIn(loggedUserId); // aula 67
   return dataSources.postApi.deletePost(postId);
 };
 
