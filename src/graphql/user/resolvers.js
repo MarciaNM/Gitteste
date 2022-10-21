@@ -1,3 +1,4 @@
+import { DataSource } from 'apollo-datasource';
 import { checkOwner } from '../login/utils/login-functions';
 // Query resolvers
 const users = async (_, { input }, { dataSources }) => {
@@ -23,7 +24,7 @@ const deleteUser = async (_, { userId }, { dataSources, loggedUserId }) => {
 };
 // Field resolvers
 async function posts({ id }, _, { dataSources }) {
-  return dataSources.postApi.batchLoadById(id);
+  return DataSource.postApi.batchLoadById(id);
 };
 
 export const userResolvers = {

@@ -1,3 +1,4 @@
+import { DataSource } from 'apollo-datasource';
 import { AuthenticationError } from 'apollo-server-errors';
 import { checkIsLoggedIn } from '../login/utils/login-functions';
 
@@ -35,7 +36,7 @@ const deletePost = async (_, { postId }, { dataSources }) => { //aula 48
 // Field resolver
 const user = async ({ userId }, _, { dataSources }) => {
   // console.log(dataSources)
-  return dataSources.userApi.batchLoadById(userId);
+  return DataSource.userApi.batchLoadById(userId);
 };
 
 export const postResolvers = {
