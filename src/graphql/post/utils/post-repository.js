@@ -12,7 +12,7 @@ export const createPostFn = async (postData, DataSource) => {
 
   return await DataSource.post('', { ...postInfo });
 };
- export const findPostOwner = async (postId, DataSource) => {
+export const findPostOwner = async (postId, DataSource) => {
   const foundPost = await DataSource.get(postId, undefined, {
     cacheOptions: { ttl: 0 },
   });
@@ -26,10 +26,10 @@ export const createPostFn = async (postData, DataSource) => {
   }
   return foundPost;
 };
-export const updatePostFn = async (postId, DataSource)=> {
-if (!postId) {
-  throw new ValidationError('Missing postId');
-}
+export const updatePostFn = async (postId, DataSource) => {
+  if (!postId) {
+    throw new ValidationError('Missing postId');
+  }
   const { userId } = await findPostOwner(postId, DataSource);
   const { title, body } = postData;
 
@@ -57,7 +57,7 @@ if (!postId) {
 
 export const deletePostFn = async (postId, DataSource) => {
   if (!postId) throw new ValidationError('Missing postId');
- await findPostOwner(postId, DataSource);
+  await findPostOwner(postId, DataSource);
 
   const deleted = await DataSource.delete(postId);
   return !!deleted;
