@@ -36,7 +36,7 @@ const deletePost = async (_, { postId }, { dataSources }) => { //aula 48
 // Field resolver
 const user = async ({ userId }, _, { dataSources }) => {
   // console.log(dataSources)
-  return DataSource.userApi.batchLoadById(userId);
+  return dataSources.userApi.batchLoadById(userId);
 };
 
 export const postResolvers = {
