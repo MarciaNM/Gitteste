@@ -2,7 +2,7 @@ import { AuthenticationError } from 'apollo-server-errors';
 
 export const checkIsLoggedIn = (loggedUserId) => {
   // console.log(loggedUserId);
-  if (!!loggedUserId) {
+  if (!loggedUserId) {
     throw new AuthenticationError('You have to log in');
   }
 };

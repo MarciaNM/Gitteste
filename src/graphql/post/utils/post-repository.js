@@ -9,7 +9,7 @@ export const createPostFn = async (postData, DataSource) => {
   if (!title || !body || !userId) {
     throw new ValidationError('You have to send title, body and userId');
   }
-
+  
   return await DataSource.post('', { ...postInfo });
 };
 export const findPostOwner = async (postId, DataSource) => {
@@ -26,7 +26,7 @@ export const findPostOwner = async (postId, DataSource) => {
   }
   return foundPost;
 };
-export const updatePostFn = async (postId, DataSource) => {
+export const updatePostFn = async (postId, postData, DataSource) => {
   if (!postId) {
     throw new ValidationError('Missing postId');
   }

@@ -8,10 +8,9 @@ export class LoginApi extends RESTDataSource {
     super();
     this.baseURL = process.env.API_URL + '/users/';
   }
-
-  async getUser(userName) {
+  //async getUser(userName) {
+  async login(userName,password) {
     const user = await this.get('', { userName }, { cacheOptions: { ttl: 0 } });
-
     const found = !!user.length;
 
     if (!found) {
@@ -21,8 +20,8 @@ export class LoginApi extends RESTDataSource {
     return user;
   }
 
-  async login(userName, password) {
-    const user = await this.getUser(userName);
+  //async login(userName, password) {
+  //const user = await this.getUser(userName);
 
     const { passwordHash, id: userId } = user[0];
     const isPasswordValid = await this.checkUserPassword(
