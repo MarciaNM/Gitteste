@@ -11,6 +11,6 @@ export const checkOwner = (userId, loggedUserId) => {
   if (loggedUserId !== userId) {
     throw new AuthenticationError('You cannot update this user');
     //console.log(loggedUserId)
-  };
+  }
 };
 

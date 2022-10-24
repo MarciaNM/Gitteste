@@ -21,16 +21,15 @@ const posts = async (_, { input }, { dataSources, loggedUserId }) => {
 const createPost = async (_, { data }, { dataSources, loggedUserId }) => {
   checkIsLoggedIn(loggedUserId); // aula 65, verifica se userId está logado
   data.userId = loggedUserId; // aula 65
-  //console.log(loggedUserId);
   return dataSources.postApi.createPost(data);
-};
+}
 
 const updatePost = async (_, { postId, data }, { dataSources, loggedUserId }) => {
   checkIsLoggedIn(loggedUserId);// aula 66
   return dataSources.postApi.updatePost(postId, data);
 };
 
-const deletePost = async (_, { postId }, { dataSources }) => { //aula 48
+const deletePost = async (_, { postId }, { dataSources, loggedUserId }) => { //aula 48
   checkIsLoggedIn(loggedUserId); // aula 67
   return dataSources.postApi.deletePost(postId);
 };
