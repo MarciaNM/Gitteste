@@ -1,7 +1,7 @@
 import { jwt } from 'jsonwebtoken';
 import { UsersApi } from './graphql/user/datasource';
 
-const authorizeUser = (req) => {
+const authorizeUser = async(req) => {
   // req.readers.authorization
   const { headers } = req;   // requisição
   const { authorization } = headers;
@@ -14,18 +14,19 @@ const authorizeUser = (req) => {
     userApi.initialize({}); // aula 61
     const foundUser = await userApi.getUser(userId);
     //console.log(userId); //aula 61
-    
+
     if (foundUser.token !== token) return ''; // aula 61
     return userId;
   } catch (e) { // (e) se apresentar erro, dá uma string vazia
+    console.log(e);
     return '';
   }
 };
 
   // Authorization: Bearer e a chave token
   // na função abaixo valida se o usuário está logado ou não
-export const context = ({ req }) => {
-  const loggedUserId = authorizeUser(req);
+export const context = async({ req }) => {
+  const loggedUserId = await authorizeUser(req);
 
   return {
     loggedUserId,

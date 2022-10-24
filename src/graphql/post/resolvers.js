@@ -9,7 +9,7 @@ const post = async (_, { id }, { dataSources }) => {
 };
 const posts = async (_, { input }, { dataSources, loggedUserId }) => {
   console.log(loggedUserId); // aula 59
-  if (!loggedUserId) { // aula 59 verifica se o userId pelo token não está logado mostra o erro
+  if (!!loggedUserId) { // aula 59 verifica se o userId pelo token não está logado mostra o erro
     throw new AuthenticationError('you have to log in');
   }
 
@@ -21,7 +21,7 @@ const posts = async (_, { input }, { dataSources, loggedUserId }) => {
 const createPost = async (_, { data }, { dataSources, loggedUserId }) => {
   checkIsLoggedIn(loggedUserId); // aula 65, verifica se userId está logado
   data.userId = loggedUserId; // aula 65
- // console.log(loggedUserId);
+  //console.log(loggedUserId);
   return dataSources.postApi.createPost(data);
 };
 

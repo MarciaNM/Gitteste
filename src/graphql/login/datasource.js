@@ -34,7 +34,7 @@ export class LoginApi extends RESTDataSource {
     }
 
     const token = this.createJwtToken({ userId });
-    await this.patch(userId, { token }, { cacheOptions: { ttl: 0 } });//aula 61
+    await this.patch(userId, { token }, { cacheOptions: { ttl: 0 } });//aula 61 // cada vez de logar ele atualiza o token
 
     return {
       userId,
