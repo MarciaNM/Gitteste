@@ -1,19 +1,19 @@
 import { AuthenticationError, ValidationError } from 'apollo-server';
 import { FetchError } from 'node-fetch';
 
-export const createPostFn = async (postData, DataSource) => {
-  const postInfo = await createPostInfo(postData, DataSource);
+export const createPostFn = async (postData, dataSources) => {
+  const postInfo = await createPostInfo(postData, dataSources);
   const { title, body, userId } = postInfo;
   console.log(postInfo);
 
   if (!title || !body || !userId) {
     throw new ValidationError('You have to send title, body and userId');
   }
-  
-  return await DataSource.post('', { ...postInfo });
+
+  return await dataSources.post('', { ...postInfo });
 };
-export const findPostOwner = async (postId, DataSource) => {
-  const foundPost = await DataSource.get(postId, undefined, {
+export const findPostOwner = async (postId, dataSources) => {
+  const foundPost = await dataSources.getUsers(postId, undefined, {
     cacheOptions: { ttl: 0 },
   });
 
@@ -21,16 +21,16 @@ export const findPostOwner = async (postId, DataSource) => {
     throw new FetchError('Could not find the post you are looking for.');
   }
 
-  if (foundPost.userId !== DataSource.context.loggedUserId) {
+  if (foundPost.userId !== dataSources.context.loggedUserId) {
     throw new AuthenticationError('You cannot update this post 😠!');
   }
   return foundPost;
 };
-export const updatePostFn = async (postId, postData, DataSource) => {
+export const updatePostFn = async (postId, postData, dataSources) => {
   if (!postId) {
     throw new ValidationError('Missing postId');
   }
-  const { userId } = await findPostOwner(postId, DataSource);
+  const { userId } = await findPostOwner(postId, dataSources);
   const { title, body } = postData;
 
   if (typeof title !== 'undefined') {
@@ -49,34 +49,34 @@ export const updatePostFn = async (postId, postData, DataSource) => {
     if (!userId) {
       throw new ValidationError('userId missing');
     }
-    await userExists(userId, DataSource);
+    await userExists(userId, dataSources);
   }
 
-  return DataSource.patch(postId, { ...postData });
+  return dataSources.patch(postId, { ...postData });
 };
 
-export const deletePostFn = async (postId, DataSource) => {
+export const deletePostFn = async (postId, dataSources) => {
   if (!postId) throw new ValidationError('Missing postId');
-  await findPostOwner(postId, DataSource);
+  await findPostOwner(postId, dataSources);
 
-  const deleted = await DataSource.delete(postId);
+  const deleted = await dataSources.delete(postId);
   return !!deleted;
 };
 
-const userExists = async (userId, DataSource) => {
+const userExists = async (userId, dataSources) => {
   try {
-    await DataSource.context.dataSources.userApi.get(userId);
+    await dataSources.context.DataSource.userApi.getUsers(userId);
   } catch (e) {
     throw new ValidationError(`User ${userId} does not exist`);
   }
 };
 
-const createPostInfo = async (postData, DataSource) => {
+const createPostInfo = async (postData, dataSources) => {
   const { title, body, userId } = postData;
 
-  await userExists(userId, DataSource);
+  await userExists(userId, dataSources);
 
-  const indexRefPost = await DataSource.get('', {
+  const indexRefPost = await dataSources.getUsers('', {
     _limit: 1,
     _sort: 'indexRef',
     _order: 'desc',

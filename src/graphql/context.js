@@ -12,7 +12,7 @@ const authorizeUser = async(req) => {
 
     const userApi = new UsersApi(); // aula 61
     userApi.initialize({}); // aula 61
-    const foundUser = await userApi.getUser(userId);
+    const foundUser = await userApi.getUsers(userId);
     //console.log(userId); //aula 61
 
     if (foundUser.token !== token) return ''; // aula 61
@@ -23,8 +23,8 @@ const authorizeUser = async(req) => {
   }
 };
 
-  // Authorization: Bearer e a chave token
-  // na função abaixo valida se o usuário está logado ou não
+// Authorization: Bearer e a chave token
+// na função abaixo valida se o usuário está logado ou não
 export const context = async({ req }) => {
   const loggedUserId = await authorizeUser(req);
 
