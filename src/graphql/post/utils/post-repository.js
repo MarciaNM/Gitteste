@@ -53,6 +53,7 @@ export const updatePostFn = async (postId, postData, DataSource) => {
   }
 
   return DataSource.patch(postId, { ...postData });
+  console.log(postData);
 };
 
 export const deletePostFn = async (postId, DataSource) => {

@@ -8,7 +8,7 @@ const authorizeUser = async (req) => {
 
   // authorization: Bearer token(é a chave do token)
   try {
-    const [_bearer, token] = authorization.split('');
+    const [_bearer, token] = authorization.split(' ');
     const { userId } = jwt.verify(token, process.env.JWT_SECRET);
 
     const userApi = new UsersApi(); // aula 61
