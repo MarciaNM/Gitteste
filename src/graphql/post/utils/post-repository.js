@@ -30,6 +30,7 @@ export const updatePostFn = async (postId, postData, DataSource) => {
   if (!postId) {
     throw new ValidationError('Missing postId');
   }
+  console.log(findPostOwner);
   const { userId } = await findPostOwner(postId, DataSource);
   const { title, body } = postData;
 
