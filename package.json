@@ -27,10 +27,7 @@
     "dotenv": "^8.5.1",
     "generator-jhipster": "^7.9.3",
     "graphql": "15.5.0",
-<<<<<<< HEAD
-=======
     "graphql-config": "^4.3.6",
->>>>>>> b068df49a55e69e1132cfff59424cffa1fb7d8da
     "gulp": "^4.0.2",
     "json-server": "^0.4.2",
     "jsonwebtoken": "^8.5.1",
