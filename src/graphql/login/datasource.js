@@ -8,10 +8,9 @@ export class LoginApi extends RESTDataSource {
     super();
     this.baseURL = process.env.API_URL + '/users/';
   }
-
   async getUser(userName) {
+    //async login(userName,password) {
     const user = await this.get('', { userName }, { cacheOptions: { ttl: 0 } });
-
     const found = !!user.length;
 
     if (!found) {
@@ -35,12 +34,21 @@ export class LoginApi extends RESTDataSource {
     }
 
     const token = this.createJwtToken({ userId });
-    await this.patch(userId, { token }, { cacheOptions: { ttl: 0 } });//aula 61
+    await this.patch(userId, { token }, { cacheOptions: { ttl: 0 } });//aula 61 // cada vez de logar ele atualiza o token
 
     return {
       userId,
       token,
     };
+  }
+  async logout(userName) { // aula 68
+    const user = await this.getUser(userName);
+
+    if (user[0].id !== this.context.loggedUserId) { // aula 68
+      throw new AuthenticationError('You are not this user.');
+    }
+    await this.patch(user[0].id, { token: '' }, { cacheOptions: { ttl: 0 } });
+    return true;
   }
 
   checkUserPassword(password, passwordHash) {

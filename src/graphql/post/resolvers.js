@@ -1,5 +1,7 @@
+import { DataSource } from 'apollo-datasource';
 import { AuthenticationError } from 'apollo-server-errors';
 import { checkIsLoggedIn } from '../login/utils/login-functions';
+
 // Query resolvers
 const post = async (_, { id }, { dataSources }) => {
   const post = dataSources.postApi.getPost(id);
@@ -7,7 +9,7 @@ const post = async (_, { id }, { dataSources }) => {
 };
 const posts = async (_, { input }, { dataSources, loggedUserId }) => {
   console.log(loggedUserId); // aula 59
-  if (!!loggedUserId) { // aula 59
+  if (!!loggedUserId) { // aula 59 verifica se o userId pelo token não está logado mostra o erro
     throw new AuthenticationError('you have to log in');
   }
 
@@ -20,13 +22,15 @@ const createPost = async (_, { data }, { dataSources, loggedUserId }) => {
   checkIsLoggedIn(loggedUserId); // aula 65, verifica se userId está logado
   data.userId = loggedUserId; // aula 65
   return dataSources.postApi.createPost(data);
-};
+}
 
 const updatePost = async (_, { postId, data }, { dataSources, loggedUserId }) => {
   checkIsLoggedIn(loggedUserId);// aula 66
   return dataSources.postApi.updatePost(postId, data);
 };
-const deletePost = async (_, { postId }, { dataSources }) => { //aula 48
+
+const deletePost = async (_, { postId }, { dataSources, loggedUserId }) => { //aula 48
+  checkIsLoggedIn(loggedUserId); // aula 67
   return dataSources.postApi.deletePost(postId);
 };
 

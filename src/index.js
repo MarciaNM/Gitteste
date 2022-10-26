@@ -6,6 +6,7 @@ import { context } from './graphql/user/context';
 import { LoginApi } from './graphql/login/datasource';
 
 
+
 const server = new ApolloServer({
   typeDefs,
   resolvers,
@@ -19,8 +20,8 @@ const server = new ApolloServer({
     };
   },
 });
-
-server.listen(7961).then(({ url }) => {
+const port = process.env.Port || 7963;
+server.listen(7963).then(({ url }) => {
   console.log(`Server Listening on url ${url}`);
 });
 
