@@ -17,17 +17,17 @@ export const updatePostFn = async (postId, postData, DataSource) => {
   if (!postId) {
     throw new ValidationError('Missing postId');
   }
-  const foundPost = await DataSource.get(postId, undefine, { // aula 66
-    cacheOptions: { ttl: 0 };
+  const foundPost = await DataSource.get(postId, undefined, { // aula 66
+    cacheOptions: { ttl: 0 },
   });
 
   if (!foundPost) { // aula 66
-    throw new FetchError('Could not find the post you are looking for.')
+    throw new FetchError('Could not find the post you are looking for.');
   }
   if (foundPost.userId !== DataSource.context.loggedUserId) { // aula 66
     throw new AuthenticationError('You cannot update this post!');
   }
-
+  return foundPost;
   console.log(foundPost);
 
   const { userId } = foundPost; // aula 66
