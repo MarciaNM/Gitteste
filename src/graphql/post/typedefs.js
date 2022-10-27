@@ -23,7 +23,7 @@ export const postTypeDefs = gql`
   input CreatePostInput {
     title: String!
     body: String!
-    #userId: String! comentado para aula 65
+    userId: String! #comentado para aula 65
   }
   input UpdatePostInput {
     title: String
