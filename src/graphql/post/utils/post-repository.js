@@ -108,3 +108,4 @@ export const updatePostFn = async (postId, postData, DataSource) => {
       createdAt: new Date().toISOString(),
     };
   };
+}
