@@ -42,11 +42,10 @@ export const updatePostFn = async (postId, postData, DataSource) => {
     return foundPost;
     console.log(foundPost);
 
-    const { userId } = foundPost; // aula 66
+    //const { userId } = foundPost; // aula 66
 
-    console.log(findPostOwner);
+    //console.log(findPostOwner);
     const { userId } = await findPostOwner(postId, DataSource);
-
     const { title, body } = postData;
 
     if (typeof title !== 'undefined') {
@@ -69,7 +68,7 @@ export const updatePostFn = async (postId, postData, DataSource) => {
     }
 
     return DataSource.patch(postId, { ...postData });
-    console.log(postData);
+    //console.log(postData);
   };
 
   export const deletePostFn = async (postId, DataSource) => {

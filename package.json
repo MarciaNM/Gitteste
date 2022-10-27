@@ -25,6 +25,7 @@
     "bcrypt": "^5.0.1",
     "dataloader": "^2.0.0",
     "dotenv": "^8.5.1",
+    "express-load": "^1.1.16",
     "generator-jhipster": "^7.9.3",
     "graphql": "15.5.0",
     "graphql-config": "^4.3.6",
