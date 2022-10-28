@@ -9,7 +9,7 @@ export const postTypeDefs = gql`
   extend type Mutation {
     createPost(data: CreatePostInput!): Post!
     updatePost(postId: ID!, data: UpdatePostInput!): Post!
-    deletePost(postId: ID!): Boolean! # inserção aula 48
+    deletePost(postId: ID!): Boolean! 
   }
 
   type Post {
@@ -23,7 +23,7 @@ export const postTypeDefs = gql`
   input CreatePostInput {
     title: String!
     body: String!
-    userId: String! #comentado para aula 65
+    userId: String! 
   }
   input UpdatePostInput {
     title: String

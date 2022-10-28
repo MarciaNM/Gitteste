@@ -43,35 +43,31 @@ export const updatePostFn = async (postId, postData, DataSource) => {
     throw new AuthenticationError('You cannot update this post!');
   }
   return foundPost;
-    // console.log(foundPost);
 
-    //const { userId } = foundPost; // aula 66
+const { userId } = foundPost; // aula 66
+const { title, body } = postData;
 
-    //console.log(findPostOwner);
-    // const { userId } = await findPostOwner(postId, DataSource);
-    // const { title, body } = postData;
+  if (typeof title !== 'undefined') {
+    if (!title) {
+      throw new ValidationError('title missing');
+   }
+  }
 
-    // if (typeof title !== 'undefined') {
-    //   if (!title) {
-    //     throw new ValidationError('title missing');
-    //   }
-    // }
+  if (typeof body !== 'undefined') {
+    if (!body) {
+     throw new ValidationError('body missing');
+    }
+  }
 
-    // if (typeof body !== 'undefined') {
-    //   if (!body) {
-    //     throw new ValidationError('body missing');
-    //   }
-    // }
+  if (typeof userId !== 'undefined') {
+    if (!userId) {
+     throw new ValidationError('userId missing');
+    }
+    await userExists(userId, DataSource);
+  }
 
-    // if (typeof userId !== 'undefined') {
-    //   if (!userId) {
-    //     throw new ValidationError('userId missing');
-    //   }
-    //   await userExists(userId, DataSource);
-    // }
-
-    // return DataSource.patch(postId, { ...postData });
-    // //console.log(postData);
+  return DataSource.patch(postId, { ...postData });
+  
 };
 
 export const deletePostFn = async (postId, DataSource) => {

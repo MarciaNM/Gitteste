@@ -1,4 +1,4 @@
-//import { DataSource } from 'apollo-datasource';
+import { DataSource } from 'apollo-datasource';
 //import { AuthenticationError } from 'apollo-server'; aula 63
 import { checkOwner } from '../login/utils/login-functions';
 
