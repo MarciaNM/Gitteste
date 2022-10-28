@@ -1,7 +1,3 @@
-#posso consultar vários post desde que identifique com nome diferente,
-# ex: post342, post860, post15.
-# pode buscar qualquer campo que tenha dentro da base de dados
-
 query GET_POST{
 
 post342: post(id:"342") {

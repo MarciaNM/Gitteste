@@ -1,4 +1,3 @@
-# criação de usuário no db.js
 mutation CREATE_USER {
   createUser(
     data: { firstName:  }

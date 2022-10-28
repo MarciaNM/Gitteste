@@ -1,7 +1,3 @@
-# Aula 30 Type Enum
-#criado um resolvers eo ApiFilterOrder para auxiliar na ordem da base de dados
-# asc ou desc
-
 
 query GET_USERS(
   $sort: String = "indexRef"

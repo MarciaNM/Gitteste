@@ -1,4 +1,3 @@
-# aula 34, chama o post do id e todos os posts que o id tem
  query GET_POSTS {
   posts{
        id

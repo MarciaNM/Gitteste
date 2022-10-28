@@ -1,8 +1,3 @@
-#consulta ok
-# posso trocar os campos de start(início) e limit
-# se não passar nenhum valor, desta forma acaba puxando os dados
-
-
 query GET_USERS(
   $sort: String = "indexRef"
   $order: String = "desc"

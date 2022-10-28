@@ -1,8 +1,3 @@
-# para utilizar todos os campos de uma base de dados
-#posso criar o fragment e coloca todos os dentro
-# e para utilizar coloca-se ...post que é o nome criado para este fragment
-# pode ser utilizado tanto para o user, users como para post, posts
-# como no exemplo abaixo
 
 fragment post on Post{
  id

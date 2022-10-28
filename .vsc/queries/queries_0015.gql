@@ -1,4 +1,3 @@
-# consulta da aula 36
 query GET_POSTS {
   posts{
        id

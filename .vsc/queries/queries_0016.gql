@@ -1,5 +1,3 @@
-# consulta aula 39 nop GET_USER
-
 query GET_USER {
   user(id:"903"){
     id

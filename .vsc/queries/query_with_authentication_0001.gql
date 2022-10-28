@@ -1,7 +1,3 @@
-#headers
-#{
-# "authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJpWWl3dF9FIiwiaWF0IjoxNjY2Njk1NDI5LCJleHAiOjE2NjczMDAyMjl9.AnCmg0luOq28dOIaJkJgEDKlwrIIAmMEl7Txej5ZrGY"
-#}
 query GET_POSTS{
   posts {
     id

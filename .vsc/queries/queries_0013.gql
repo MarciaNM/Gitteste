@@ -1,4 +1,3 @@
-# aula 34 Relações e problema N+1, ex com id 940, traz o post e todos os posts deste id
 query GET_POST {
   post(id: "940") {
 

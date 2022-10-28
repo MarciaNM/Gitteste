@@ -1,4 +1,3 @@
-# update de user
 mutation UPDATE_USER {
   updateUser(
     userId:

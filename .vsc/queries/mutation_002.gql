@@ -1,5 +1,3 @@
-# criação update_post aula 47
-
 mutation UPDATE_POST {
   updatePost(
     postId:"W4q2DBX"

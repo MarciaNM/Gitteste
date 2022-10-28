@@ -1,9 +1,3 @@
-# Query variables
-# {
-#  "title": "O título dinâmico",
-#  "body": "O conteúdo",
-#  "userId": "602"
-# }
 mutation CREATE_POST($title: String!, $body: String!, $userId: String!) {
   createPost(data: { title: $title, body: $body, userId: $userId }) {
     id
@@ -17,13 +11,7 @@ mutation CREATE_POST($title: String!, $body: String!, $userId: String!) {
   }
 }
 
-# {
-#   "postId": "Qw276sJ",
-#   "data": {
-#     "title": "O novo título",
-#     "body": "O novo body"
-#   }
-# }
+
 mutation UPDATE_POST($postId: ID!, $data: UpdatePostInput!) {
   updatePost(postId: $postId, data: $data) {
     id
