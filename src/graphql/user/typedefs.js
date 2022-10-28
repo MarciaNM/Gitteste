@@ -5,10 +5,10 @@ export const userTypeDefs = gql`
     user(id: ID!): User!
     users(input: ApiFiltersInput): [User!]!
   }
- 
+  
   extend type Mutation {
     createUser(data: CreateUserInput!): User!
-    updateUser(userId: ID!, data: UpdateUserInput!): User! # ve se o userId existe na base de dados e atualiza ele
+    updateUser(userId: ID!, data: UpdateUserInput!): User! 
     deleteUser(userId: ID!): Boolean!
   }
 
@@ -33,6 +33,6 @@ export const userTypeDefs = gql`
     firstName: String
     lastName: String
     userName: String
-    password: String # aula 57
+    password: String
   }
 `;

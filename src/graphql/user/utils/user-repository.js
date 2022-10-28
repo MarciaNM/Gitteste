@@ -5,13 +5,12 @@ export const createUserFn = async (userData, DataSource) => { //recebe os dados 
   await checkUserFields(userData, true); // 1. a função para receber os dados do usuário e se são todos requeridos
 
   // passo 6  verifica o indexRef e acrescenta mais 1
-  const indexRefUser = await DataSource.getUsers('', {
+  const indexRefUser = await DataSource.get('', {
     _limit: 1,
     _sort: 'indexRef',
     _order: 'desc',
   });
   const indexRef = indexRefUser[0].indexRef + 1;
-
 
   const foundUser = await userExists(userData.userName, DataSource); // passo 7 verifica na função userExists se o usuário já não existe na base
 
@@ -43,6 +42,7 @@ export const updateUserFn = async (userId, userData, DataSource) => {
       );
     }
   }
+
   return DataSource.patch(userId, { ...userData });
 };
 
@@ -76,7 +76,7 @@ const validateUserPassword = (password) => {
   if (!password.match(strongPasswordRegex)) { // aula 57.4
     throw new UserInputError(
       'Password must contain at least:' +
-      'One lower case letter, onde upper letter and onde number.',
+       'One lower case letter, onde upper letter and onde number.',
     );
   }
 };
