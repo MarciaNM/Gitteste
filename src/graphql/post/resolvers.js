@@ -8,8 +8,8 @@ const post = async (_, { id }, { dataSources }) => {
   return post;
 };
 const posts = async (_, { input }, { dataSources, loggedUserId }) => {
-  // console.log(loggedUserId); // aula 59
-  if (!!loggedUserId) { // aula 59 verifica se o userId pelo token não está logado mostra o erro
+  //console.log(loggedUserId); // aula 59
+  if (!!!loggedUserId) { // aula 59 verifica se o userId pelo token não está logado mostra o erro
     throw new AuthenticationError('you have to log in');
   }
 
@@ -35,9 +35,13 @@ const deletePost = async (_, { postId }, { dataSources, loggedUserId }) => { //a
 };
 
 // Field resolver
-const user = async ({ userId }, _, { dataSources }) => {
-  // console.log(dataSources)
-  return dataSources.userApi.batchLoadById(userId);
+const user = async ( userId , _, { dataSources }) => {
+ 
+  if (!userId.userId) {
+    console.log("fieldUser,",userId)
+  }
+    return dataSources.userApi.batchLoadById(userId.userId);
+   
 };
 
 export const postResolvers = {

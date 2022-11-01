@@ -53,10 +53,10 @@ export const deleteUserFn = async (userId, DataSource) => {
 };
 // passo 8 busca se o usuário existe
 const userExists = async (userName, DataSource) => {
-  const found = await DataSource.get('', {
+  const [found] = await DataSource.get('', {
     userName,
   });
-  return found[o]; // retorna o dado encontrado
+  return found; // retorna o dado encontrado
 };
 // passo 5
 const validateUserName = (userName) => { // faz a validação do nome que inicie com letras

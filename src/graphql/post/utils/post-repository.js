@@ -4,7 +4,7 @@ import { FetchError } from 'node-fetch';
 export const createPostFn = async (postData, DataSource) => {
   const postInfo = await createPostInfo(postData, DataSource);
   const { title, body, userId } = postInfo;
-  console.log(postInfo);
+  //(postInfo);
 
   if (!title || !body || !userId) {
     throw new ValidationError('You have to send title, body and userId');
@@ -42,33 +42,35 @@ export const updatePostFn = async (postId, postData, DataSource) => {
   if (foundPost.userId !== DataSource.context.loggedUserId) { // aula 66
     throw new AuthenticationError('You cannot update this post!');
   }
-  return foundPost;
+  //return foundPost;
 
-const { userId } = foundPost; // aula 66
-const { title, body } = postData;
+  const { userId } = foundPost; // aula 66
+  const { title, body } = postData;
 
   if (typeof title !== 'undefined') {
     if (!title) {
       throw new ValidationError('title missing');
-   }
+    }
   }
 
   if (typeof body !== 'undefined') {
     if (!body) {
-     throw new ValidationError('body missing');
+      throw new ValidationError('body missing');
     }
-  }
 
-  if (typeof userId !== 'undefined') {
-    if (!userId) {
-     throw new ValidationError('userId missing');
+    if (typeof userId !== 'undefined') {
+      if (!userId) {
+        throw new ValidationError('userId missing');
+      }
+      await userExists(userId, DataSource);
     }
-    await userExists(userId, DataSource);
-  }
 
+    return DataSource.patch(postId, { ...postData });
+
+  };
   return DataSource.patch(postId, { ...postData });
-  
-};
+
+}
 
 export const deletePostFn = async (postId, DataSource) => {
   if (!postId) throw new ValidationError('Missing postId');
@@ -107,4 +109,3 @@ const createPostInfo = async (postData, DataSource) => {
     createdAt: new Date().toISOString(),
   };
 };
-// }

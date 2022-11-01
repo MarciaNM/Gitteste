@@ -16,6 +16,7 @@ export class PostsApi extends RESTDataSource {
     });
   }
   async getPost(id) {
+    console.log("getPost", id)
     return this.get(id, undefined, {
       cacheOptions: { ttl: 60 },
     });
@@ -36,6 +37,7 @@ export class PostsApi extends RESTDataSource {
   }
 
   batchLoadById(id) {
+    console.log("postId", id);
     return this.dataLoader.load(id);
   }
 }

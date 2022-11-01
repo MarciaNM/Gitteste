@@ -31,7 +31,7 @@ export class UsersApi extends RESTDataSource {
     return deleteUserFn(userId, this);
   }
   async getUser(id) {
-   // console.log('getUser: ', id)
+    // console.log('getUser: ', id)
     return this.get(id, undefined, {
       cacheOptions: { ttl: 0 },
     });
@@ -39,6 +39,7 @@ export class UsersApi extends RESTDataSource {
 
 
   batchLoadById(id) {
+  console.log(id)
     return this.dataLoader.load(id);
   }
-}
+} 
