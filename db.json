@@ -213,7 +213,8 @@
       "passwordHash": "$2b$12$wzOD9A5eZKkw5AkFK9bJVuzZWMBeB1xLqAJD3g69NgL89SWfv.wla",
       "indexRef": 33,
       "createdAt": "2022-10-13T18:21:53.727Z",
-      "id": "nt8qtQb"
+      "id": "nt8qtQb",
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJudDhxdFFiIiwiaWF0IjoxNjY3NDkyOTQ1LCJleHAiOjE2NjgwOTc3NDV9.2WtaKyPI7Ko_DWmAisCeaaBEKL0XwhzVEF8YjCIUwV8"
     },
     {
       "firstName": "HortenciaF123",
@@ -223,7 +224,7 @@
       "indexRef": 34,
       "createdAt": "2022-10-13T19:38:42.415Z",
       "id": "xtLuFNb",
-      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJ4dEx1Rk5iIiwiaWF0IjoxNjY3MjQ1ODIyLCJleHAiOjE2Njc4NTA2MjJ9.Fsw6CPbh5oO5jIXbMYI_PH2lDHQ3QKWguJZjPTWpWf4"
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJ4dEx1Rk5iIiwiaWF0IjoxNjY3NDc0Nzg1LCJleHAiOjE2NjgwNzk1ODV9.aRIWRUg5Gf0bY7ev7GwBacA4q2iUWyXKbRPBjCgVtxE"
     },
     {
       "firstName": "Hortencia",
@@ -369,6 +370,15 @@
       "indexRef": 50,
       "createdAt": "2022-10-31T19:52:29.889Z",
       "id": "4nm3rco"
+    },
+    {
+      "firstName": "Pedrinho1",
+      "lastName": "B.",
+      "userName": "Pedrinho1",
+      "passwordHash": "$2b$12$k5j2diYJawAivlgzkah.De8ZLqlPyBG.KLCjTUBWglfM6wSIclhym",
+      "indexRef": 51,
+      "createdAt": "2022-11-01T13:27:12.976Z",
+      "id": "wptw5-n"
     }
   ],
   "posts": [
@@ -901,20 +911,36 @@
       "id": "AGvyLLu"
     },
     {
-      "title": "teste 3",
-      "body": "teste de post 5",
-      "userId": "xtLuFNb",
-      "indexRef": 78,
-      "createdAt": "2022-10-31T18:40:59.740Z",
-      "id": "F5qNWY4"
-    },
-    {
       "title": "Atualizei novo post",
       "body": "teste de post 6",
       "userId": "xtLuFNb",
       "indexRef": 79,
       "createdAt": "2022-10-31T19:50:44.656Z",
       "id": "ClSjhvI"
+    },
+    {
+      "title": "teste 3",
+      "body": "teste de post 6",
+      "userId": "xtLuFNb",
+      "indexRef": 80,
+      "createdAt": "2022-11-01T13:26:03.301Z",
+      "id": "4VXhk3n"
+    },
+    {
+      "title": "teste 6",
+      "body": "teste de post 6",
+      "userId": "xtLuFNb",
+      "indexRef": 81,
+      "createdAt": "2022-11-01T14:42:55.642Z",
+      "id": "879Nvzs"
+    },
+    {
+      "title": "teste 6",
+      "body": "teste de post 6",
+      "userId": "xtLuFNb",
+      "indexRef": 82,
+      "createdAt": "2022-11-03T11:26:46.134Z",
+      "id": "paubXd8"
     }
   ],
   "comments": [
