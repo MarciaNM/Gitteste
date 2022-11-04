@@ -18,6 +18,7 @@ const verifyJwtToken = async (token) => {
 };
 
 const authorizeUserWithBearerToken = async (req) => {
+  if (!req || !req.headers || !req.headers.authorization) return '';
   //req.headers.authorization
   const { headers } = req; // requisição
   const { authorization } = headers;

@@ -58,6 +58,7 @@ export class LoginApi extends RESTDataSource {
       throw new AuthenticationError('You are not this user.');
     }
     await this.patch(user[0].id, { token: '' }, { cacheOptions: { ttl: 0 } });
+    this.context.res.clearCookie('jwtToken'); // aula 72
     return true;
   }
 
