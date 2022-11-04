@@ -208,16 +208,6 @@
     },
     {
       "firstName": "HortenciaF123",
-      "lastName": "O.",
-      "userName": "Joana",
-      "passwordHash": "$2b$12$wzOD9A5eZKkw5AkFK9bJVuzZWMBeB1xLqAJD3g69NgL89SWfv.wla",
-      "indexRef": 33,
-      "createdAt": "2022-10-13T18:21:53.727Z",
-      "id": "nt8qtQb",
-      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJudDhxdFFiIiwiaWF0IjoxNjY3NDk1MzUyLCJleHAiOjE2NjgxMDAxNTJ9.H_U9aTGrYGrW6EN3luJyHfNpl32NdWv_NLcD4ZogBso"
-    },
-    {
-      "firstName": "HortenciaF123",
       "lastName": "F.",
       "userName": "HortenciaF",
       "passwordHash": "$2b$12$u.wwUK9ExHM0JgxB3mJUCe4UVzg.4zlrjW2tubdyR1Zj0i8PYTL.u",
@@ -941,6 +931,14 @@
       "indexRef": 82,
       "createdAt": "2022-11-03T11:26:46.134Z",
       "id": "paubXd8"
+    },
+    {
+      "title": "teste 7",
+      "body": "teste de post 7",
+      "userId": "nt8qtQb",
+      "indexRef": 83,
+      "createdAt": "2022-11-04T12:33:47.546Z",
+      "id": "7-0r0MV"
     }
   ],
   "comments": [

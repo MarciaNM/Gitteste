@@ -16,7 +16,7 @@ export class PostsApi extends RESTDataSource {
     });
   }
   async getPost(id) {
-    console.log("getPost", id)
+    //console.log("getPost", id)
     return this.get(id, undefined, {
       cacheOptions: { ttl: 0 },
     });

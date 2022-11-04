@@ -8,6 +8,7 @@ const verifyJwtToken = async (token) => {
     const userApi = new UsersApi(); // aula 71
     userApi.initialize({}); // aula 71
     const foundUser = await userApi.getUser(userId);
+    console.log(token);
 
     if (foundUser.token !== token) return ''; // aula 71
     return userId; // aula 71
@@ -57,9 +58,9 @@ const cookieParser = (cookiesHeader) => {
 export const context = async ({ req, res }) => {  // res aula 70 cookie
   let loggedUserId = await authorizeUserWithBearerToken(req);
 
-  console.log(req.headers.cookie);
+  //console.log(req.headers.cookie);
 
-  if (!loggedUserId) {
+  if (!!loggedUserId) {
     if (req.headers.cookie) {
       const { jwtToken } = cookieParser(req.headers.cookie);
       loggedUserId = await verifyJwtToken(jwtToken);
