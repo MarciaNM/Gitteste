@@ -35,14 +35,14 @@ export class LoginApi extends RESTDataSource {
 
     const token = this.createJwtToken({ userId });
     await this.patch(userId, { token }, { cacheOptions: { ttl: 0 } });//aula 61 // cada vez de logar ele atualiza o token
-  
+
     // Response header aula 70 cookie
     this.context.res.cookie('jwtToken', token, {
-      secure: true, //rede segura https
+      secure: false, //rede segura https
       httpOnly: true, // Não deve ser acessado via código
       maxAge: 1000 * 60 * 24 * 7, // 7 dias
       path: '/',
-      sameSite: 'none', // strict lax none(esse cookie so pode navegar dentro deste domínio)
+      sameSite: 'strict', // strict lax none(esse cookie so pode navegar dentro deste domínio)
 
     });
 
