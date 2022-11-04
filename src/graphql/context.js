@@ -3,6 +3,7 @@ import { UsersApi } from './graphql/user/datasource';
 
 const verifyJwtToken = async (token) => {
   try {
+    const [_bearer, token] = authorization.split(' ');
     const { userId } = jwt.verify(token, process.env.JWT_SECRET);
 
     const userApi = new UsersApi(); // aula 71

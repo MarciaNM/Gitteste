@@ -8,7 +8,7 @@ const verifyJwtToken = async (token) => {
     const userApi = new UsersApi(); // aula 71
     userApi.initialize({}); // aula 71
     const foundUser = await userApi.getUser(userId);
-
+  
     if (foundUser.token !== token) return ''; // aula 71
     return userId; // aula 71
   } catch (e) { // (e) se apresentar erro, dá uma string vazia
