@@ -3,13 +3,12 @@ import { UsersApi } from './graphql/user/datasource';
 
 const verifyJwtToken = async (token) => {
   try {
-    const [_bearer, token] = authorization.split(' ');
+    
     const { userId } = jwt.verify(token, process.env.JWT_SECRET);
 
     const userApi = new UsersApi(); // aula 71
     userApi.initialize({}); // aula 71
     const foundUser = await userApi.getUser(userId);
-    console.log(token);
 
     if (foundUser.token !== token) return ''; // aula 71
     return userId; // aula 71
@@ -20,6 +19,8 @@ const verifyJwtToken = async (token) => {
 };
 
 const authorizeUserWithBearerToken = async (req) => {
+  if (!req || !req.headers || !req.headers.authorization) return '';
+
   //req.headers.authorization
   const { headers } = req; // requisição
   const { authorization } = headers;

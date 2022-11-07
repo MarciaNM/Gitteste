@@ -29,6 +29,6 @@ export const postTypeDefs = gql`
 
     title: String
     body: String
-    userId: String // comentado para aula 66
+    userId: String 
   }
 `;

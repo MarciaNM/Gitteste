@@ -37,14 +37,14 @@ export class LoginApi extends RESTDataSource {
     await this.patch(userId, { token }, { cacheOptions: { ttl: 0 } });//aula 61 cada vez de logar ele atualiza o token
 
    // Response header aula 70 cookie, mas será utilizado autenticação via token
-  this.context.res.cookie('jwtToken', token, {
-    secure: false, //rede segura https
-    httpOnly: true, // Não deve ser acessado via código
-    maxAge: 1000 * 60 * 24 * 7, // 7 dias
-    path: '/',
-    sameSite: 'strict', // strict lax none(esse cookie so pode navegar dentro deste domínio)
+   this.context.res.cookie('jwtToken', token, {
+     secure: false, //rede segura https
+     httpOnly: true, // Não deve ser acessado via código
+     maxAge: 1000 * 60 * 24 * 7, // 7 dias
+     path: '/',
+     sameSite: 'strict', // strict lax none(esse cookie so pode navegar dentro deste domínio)
 
-  });
+   });
 
     return {
       userId,
@@ -57,6 +57,7 @@ export class LoginApi extends RESTDataSource {
     if (user[0].id !== this.context.loggedUserId) { // aula 68
       throw new AuthenticationError('You are not this user.');
     }
+    
     await this.patch(user[0].id, { token: '' }, { cacheOptions: { ttl: 0 } });
     this.context.res.clearCookie('jwtToken'); // aula 72 será utilizado o token e não cookie
     return true;
