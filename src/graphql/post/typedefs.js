@@ -26,8 +26,9 @@ export const postTypeDefs = gql`
     userId: String! 
   }
   input UpdatePostInput {
+
     title: String
     body: String
-    #userId: String // comentado para aula 66
+    userId: String // comentado para aula 66
   }
 `;
