@@ -1,8 +1,8 @@
 version: '3'
 services:
   graphql_mysql:
-    container_name: mysql_curso
-    hostname: mysql_curso
+    container_name: graphql_mysql
+    hostname: graphql_mysql
     image: mysql
     restart: always
     command:
@@ -13,12 +13,12 @@ services:
      
     volumes:
  
-      - C:\Users\Admin\Desktop\Aula_Graphql:/var/lib/mysql
+      - C:\Users\Admin\Desktop\Aula_Graphql\mysqlonly\graphql_mysql:/var/lib/mysql
     ports:
       - 3306:3306
     environment:
       MYSQL_ROOT_PASSWORD: senha
-      MYSQL_DATABASE: base_de_dados
+      MYSQL_DATABASE: graphql_mysql
       MYSQL_USER: usuario
       MYSQL_PASSWORD: senha
      
