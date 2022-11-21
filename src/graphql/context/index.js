@@ -1,5 +1,5 @@
 import jwt from 'jsonwebtoken';
-import { UsersApi } from './graphql/user/datasource';
+import { UsersApi } from './graphql/schema/user/datasource';
 
 const verifyJwtToken = async (token) => {
   try {
