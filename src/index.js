@@ -1,6 +1,6 @@
 import { ApolloServer } from 'apollo-server';
 
-import { knex } from './knex';
+import { knex } from './knex/';
 
 import { PostsApi } from './graphql/schema/post/datasource';
 import { UsersApi } from './graphql/schema/user/datasource';
@@ -30,8 +30,10 @@ const server = new ApolloServer({
     };
   },
 });
+
 const port = process.env.Port || 7965;
 server.listen(7965).then(({ url }) => {
-  console.log(`Server Listening on url ${url}`);
+console.log(`Server Listening on url ${url}`);
+ 
 });
 

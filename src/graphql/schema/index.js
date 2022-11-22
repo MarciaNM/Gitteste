@@ -37,7 +37,7 @@ const rootResolvers = {
 };
 
 export const typeDefs = [
-  rootTypeDefs,
+  rootTypeDefs, 
   userTypeDefs,
   postTypeDefs,
   apiFiltersTypeDefs,

@@ -1,6 +1,6 @@
-import { DataSource } from 'apollo-datasource';
 import { AuthenticationError } from 'apollo-server-errors';
 import { checkIsLoggedIn } from '../login/utils/login-functions';
+
 
 // Query resolvers
 const post = async (_, { id }, { dataSources }) => {
@@ -15,6 +15,7 @@ const posts = async (_, { input }, { dataSources, loggedUserId }) => {
 
   const posts = dataSources.postApi.getPosts(input);
   return posts;
+
 };
 
 // Mutation resolvers
@@ -43,9 +44,12 @@ const user = async ( userId , _, { dataSources }) => {
     return dataSources.userApi.batchLoadById(userId.userId);
    
 };
+const comments = async ({ id: post_id}, _, {dataSources}) => {
+ return dataSources.commentDb.batchLoad(post_id);
+};
 
 export const postResolvers = {
-  Query: { post, posts },
+  Query: { post, posts }, 
   Mutation: { createPost, updatePost, deletePost },
-  Post: { user },
+  Post: { user, comments },
 };

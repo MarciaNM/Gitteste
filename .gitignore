@@ -119,6 +119,9 @@ dist
 # TernJS port file
 .tern-port
 
+#pasta docker
+# .docker-compose.yml
+
 # Stores VSCode versions used for testing VSCode extensions
 .vscode-test
 

@@ -17,6 +17,7 @@ export const postTypeDefs = gql`
     title: String!
     body: String!
     user: User!
+    comments: [Comment!]!
     indexRef: Int!
     createdAt: String!
   }

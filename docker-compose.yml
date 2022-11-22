@@ -13,7 +13,7 @@ services:
      
     volumes:
  
-      - C:\Users\Admin\Desktop\Aula_Graphql\mysqlonly\graphql_mysql:/var/lib/mysql
+      - ./docker/mysql/:/var/lib/mysql
     ports:
       - 3306:3306
     environment:
