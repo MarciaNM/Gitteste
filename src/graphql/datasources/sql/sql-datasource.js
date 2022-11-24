@@ -1,5 +1,5 @@
-import {DataSource}  from "apollo-datasource";
-import {InMemoryLRUCache} from "apollo-server-caching";
+import { DataSource }  from "apollo-datasource";
+import { InMemoryLRUCache } from "apollo-server-caching";
 import DataLoader from "dataloader";
 
 export class SQLDataSource extends DataSource { 
@@ -15,7 +15,7 @@ export class SQLDataSource extends DataSource {
     }
 
      async batchLoad(id){
-         return this._loader.load(id);
+        return this._loader.load(id);
     }
      async batchLoaderCallback(_ids){
         return _ids;

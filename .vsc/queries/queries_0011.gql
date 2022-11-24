@@ -1,6 +1,6 @@
 query GET_POST {
   post(id: "8600") {
-    __typename
+    __typeName
 
     ... on Post {
       id

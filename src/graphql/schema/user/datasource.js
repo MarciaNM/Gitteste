@@ -39,7 +39,7 @@ export class UsersApi extends RESTDataSource {
 
 
   batchLoadById(id) {
-  console.log(id)
+  //console.log(id)
     return this.dataLoader.load(id);
   }
 } 

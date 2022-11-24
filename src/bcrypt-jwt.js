@@ -12,7 +12,7 @@ import jwt from 'jsonwebtoken';
     passwordHash,
   );
 
-   console.log(passwordIsValid);
+  // console.log(passwordIsValid);
 })();
 
 (async () => {
@@ -27,5 +27,5 @@ import jwt from 'jsonwebtoken';
 
   const tokenData = jwt.verify(token, JWT_SECRET);
 
-  console.log(tokenData);
+  //console.log(tokenData);
 })();

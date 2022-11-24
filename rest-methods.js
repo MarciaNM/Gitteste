@@ -4,7 +4,7 @@ import fetch from 'node-fetch';
 const  API_URL  =  processo . env . API_URL ;
 
 const  get  =  ( endPoint ,  urlParam ,  requestInit  =  { } )  =>  {
-   URL  const =
+   const URL =
     API_URL  +  '/'  +  endPoint  +  '?'  +  new  URLSearchParams ( urlParam ) . toString ( ) ;
   return  fetch ( url ,  {
     method : 'GET' ,
@@ -65,7 +65,7 @@ const  del  =  ( endPoint ,  body ,  requestInit  =  { } )  =>  {
 // CRUD
 // Post Read Update Delete
 // post get patch delete
-( assíncrono  ( )  =>  {
+(async () => {
   // GET -> Ler
   // const userGetResponse = await get('users/502');
   // const usuário = espera userGetResponse.json();
@@ -98,8 +98,8 @@ const  del  =  ( endPoint ,  body ,  requestInit  =  { } )  =>  {
   // console.log(usuário);
 
   // DELETE -> Apaga o objeto
-  const  userResponse  =  await  del ( 'users/6000' ) ;
-  const  user  =  espera  userResponse . json ( ) ;
-  consola . log ( user ) ;
-} ) ( ) ;
+  const userResponse  =  await  del( 'users/6000' );
+  const user = await  userResponse.json();
+  //console.log(user) ;
+})();
 

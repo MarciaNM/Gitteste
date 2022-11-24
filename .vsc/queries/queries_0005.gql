@@ -8,7 +8,7 @@ query GET_USERS($id: ID! $teste: Boolean) {
       firstName
       lastName
       userName
-      __typename
+      typeName
       indexRef
     }
 

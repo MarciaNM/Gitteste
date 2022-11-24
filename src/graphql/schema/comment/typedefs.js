@@ -4,6 +4,10 @@ export const commentTypedefs = gql`
     extend type Mutation {
         createComment(data: CreateCommentInput!): Comment!
     }
+    extend type Subscription { 
+        createdComment(test: String): Comment!
+    }
+
     type Comment {
         id: ID!
         comment: String!
@@ -15,5 +19,4 @@ export const commentTypedefs = gql`
         comment: String!
         postId: String!
     }
-
 `;

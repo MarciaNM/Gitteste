@@ -7,7 +7,7 @@ users {
   indexRef
   lastName
   userName
-  typename
+  typeName
 
  }
 }
@@ -21,6 +21,6 @@ user {
   indexRef
   lastName
   userName
-  typename
+  typeName
  }
 }

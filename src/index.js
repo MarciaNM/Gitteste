@@ -29,6 +29,21 @@ const server = new ApolloServer({
 
     };
   },
+  uploads: false,
+  cors: {
+    origin: ['https://cdpn.io'],
+    credentials: true,
+  },
+  subscriptions: {
+    onConnect: (connectionParams, ws, _context) =>{
+      //console.log('Client connected');
+      //console.log('ws');
+      return {
+        req: ws.upgradeReq,
+      };
+  
+  },
+  },
 });
 
 const port = process.env.Port || 7965;

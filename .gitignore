@@ -120,6 +120,8 @@ dist
 .tern-port
 
 #pasta docker
+./docker/*
+./docker/mysql
 # .docker-compose.yml
 
 # Stores VSCode versions used for testing VSCode extensions

@@ -21,13 +21,14 @@ export const postTypeDefs = gql`
     indexRef: Int!
     createdAt: String!
   }
+
   input CreatePostInput {
     title: String
     body: String
     userId: String! 
   }
-  input UpdatePostInput {
 
+  input UpdatePostInput {
     title: String
     body: String
     userId: String 

@@ -37,7 +37,7 @@ export class PostsApi extends RESTDataSource {
   }
 
   batchLoadById(id) {
-    console.log("postId", id);
+    //console.log("postId", id);
     return this.dataLoader.load(id);
   }
 }

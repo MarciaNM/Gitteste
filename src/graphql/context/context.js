@@ -28,6 +28,7 @@ const authorizeUserWithBearerToken = async (req) => {
   // authorization: Bearer token(é a chave do token)
   try {
     const [_bearer, token] = authorization.split(' ');
+    //console.log(await verifyJwtToken(token))
     return await verifyJwtToken(token);
   } catch (e) { // (e) se apresentar erro, dá uma string vazia
     // console.log(e);
@@ -57,20 +58,35 @@ const cookieParser = (cookiesHeader) => {
   return JSON.parse(JSON.stringify(parsedCookie));
 };
 
-export const context = async ({ req, res }) => {  // res aula 70 cookie
-  let loggedUserId = await authorizeUserWithBearerToken(req);
+export const context = async ({ req, res, connection }) => {  // res aula 70 cookie
+  //console.log(connection);
+  const reqOrConnection = req || connection?.context?.req;
+  let loggedUserId = await authorizeUserWithBearerToken(reqOrConnection);
 
-  //console.log(req.headers.cookie);
-
-  if (!loggedUserId) {
-    if (req.headers.cookie) {
+  console.log(reqOrConnection.headers);
+  
+   if (!loggedUserId) {
+    if (req && req.headers && req.headers.cookie) { // aula 93 validar o token para a conexão(cookie)
       const { jwtToken } = cookieParser(req.headers.cookie);
       loggedUserId = await verifyJwtToken(jwtToken);
     }
   }
-
-  return {
+  const theContext = {
     loggedUserId,
     res,
   };
+
+  if (connection) {
+    const userApi = new UsersApi();
+    userApi.initialize({});
+
+    theContext.dataSources = {
+      userApi,
+    };
+  }
+
+  return theContext;
 };
+
+
+ 

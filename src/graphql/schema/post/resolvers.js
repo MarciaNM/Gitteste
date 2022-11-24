@@ -7,6 +7,7 @@ const post = async (_, { id }, { dataSources }) => {
   const post = dataSources.postApi.getPost(id);
   return post;
 };
+
 const posts = async (_, { input }, { dataSources, loggedUserId }) => {
   //console.log(loggedUserId); // aula 59
   if (!!!loggedUserId) { // aula 59 verifica se o userId pelo token não está logado mostra o erro
@@ -20,6 +21,7 @@ const posts = async (_, { input }, { dataSources, loggedUserId }) => {
 
 // Mutation resolvers
 const createPost = async (_, { data }, { dataSources, loggedUserId }) => {
+  //console.log(loggedUserId);
   checkIsLoggedIn(loggedUserId); // aula 65, verifica se userId está logado
   data.userId = loggedUserId; // aula 65
   return dataSources.postApi.createPost(data);
@@ -39,7 +41,7 @@ const deletePost = async (_, { postId }, { dataSources, loggedUserId }) => { //a
 const user = async ( userId , _, { dataSources }) => {
  
   if (!userId.userId) {
-    console.log("fieldUser,",userId)
+    //console.log("fieldUser,",userId)
   }
     return dataSources.userApi.batchLoadById(userId.userId);
    

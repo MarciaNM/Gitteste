@@ -1,5 +1,5 @@
 import jwt from 'jsonwebtoken';
-import { UsersApi } from './graphql/schema/user/datasource';
+import { UsersApi } from '../context';
 
 const verifyJwtToken = async (token) => {
   try {
@@ -9,7 +9,7 @@ const verifyJwtToken = async (token) => {
     const userApi = new UsersApi(); // aula 71
     userApi.initialize({}); // aula 71
     const foundUser = await userApi.getUser(userId);
-    console.log(token);
+    //console.log(token);
 
     if (foundUser.token !== token) return ''; // aula 71
     return userId; // aula 71
@@ -22,6 +22,7 @@ const verifyJwtToken = async (token) => {
 const authorizeUserWithBearerToken = async (req) => {
   if (!req || !req.headers || !req.headers.authorization) return '';
   //req.headers.authorization
+
   const { headers } = req; // requisição
   const { authorization } = headers;
 
@@ -57,17 +58,25 @@ const cookieParser = (cookiesHeader) => {
   return JSON.parse(JSON.stringify(parsedCookie));
 };
 
-export const context = async ({ req, res }) => {  // res aula 70 cookie
-  let loggedUserId = await authorizeUserWithBearerToken(req);
+export const context = async ({ req, res, connection}) => {  // res aula 70 cookie
+  //console.log(connection);
+  const reqOrConnection = req || connection?.context?.req;
+  let loggedUserId = await authorizeUserWithBearerToken(reqOrConnection);
 
-  //console.log(req.headers.cookie);
+  console.log(reqOrConnection.headers);
 
   if (!loggedUserId) {
-    if (req.headers.cookie) {
-      const { jwtToken } = cookieParser(req.headers.cookie);
+      if (reqOrConnection && reqOrConnection.headers && reqOrConnection.headers.cookie) { // aula 93 validar o token para a conexão(cookie)
+      const { jwtToken } = cookieParser(reqOrConnection.headers.cookie);
       loggedUserId = await verifyJwtToken(jwtToken);
     }
   }
+
+  const theContext = {
+    loggedUserId,
+    res,
+  };
+
 
   return {
     loggedUserId,
