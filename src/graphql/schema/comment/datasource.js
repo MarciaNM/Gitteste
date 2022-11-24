@@ -2,7 +2,7 @@ import { PubSub } from 'apollo-server';
 import { ValidationError } from 'apollo-server-errors';
 import { assertWrappingType } from 'graphql';
 import {SQLDataSource} from '../../datasources/sql/sql-datasource';
-import { CREATED_COMMENT_TRIGGER, pubSub } from '../post/resolvers'
+import { CREATED_COMMENT_TRIGGER, pubSub } from './resolvers'
 
 const commentReducer = (comment) => {
     return {
@@ -37,7 +37,7 @@ export class CommentSQLDatasource extends SQLDataSource {
          post_id: postId,
          comment,
     };    
-    const exists = await this.db('tableName').where(partialComment);
+    const exists = await this.db(this.tableName).where(partialComment);
         if (exists.lenght > 0) {
             throw new ValidationError ('Comment already created');
     }

@@ -1,5 +1,5 @@
 
-import { PubSub } from 'apollo-server';
+import { PubSub, withFilter} from 'apollo-server';
 import { checkIsLoggedIn } from '../login/utils/login-functions';
 
 export const pubSub = new PubSub(); // classe instanciada do PubSub
@@ -16,6 +16,7 @@ const createComment = async (_, { data }, { dataSources, loggedUserId }) => {
         postId,
         comment,
         userId: loggedUserId,
+        postOwner: post?.userId || null,
 
     });
 
@@ -27,13 +28,24 @@ const user = async ({ user_id}, _, { dataSources }) => {
 };
 
 const createdComment = {   
-    subscribe: () => {
-    // subscribe: (parentObj, args, context) => {
+    subscribe: withFilter( // aula 95
+    () => {
+    //subscribe: (parentObj, args, context) => {
     //console.log('PARENT', parentObj);
-    //onsole.log('ARGS', args);
+    //console.log('ARGS', args);
     //console.log('CTX', context);
     return pubSub.asyncIterator(CREATED_COMMENT_TRIGGER); // aula 92 e 93
-},
+    },
+    (payload, _, context) => {
+        console.log('PAYLOAD', payload.postOwner);
+        console.log('CTX', context);
+        console.log('CONDIÇAO', payload.postOwner === context.loggedUserId);
+        const hasPostOwner = payload.postOwner !== null;
+        const postOwnerIsLoggedUser =  payload.postOwner === context.loggedUserId;
+        const shouldNotifyUser = hasPostOwner && postOwnerIsLoggedUser;
+        return shouldNotifyUser;
+    },
+    ),
 
 };
 

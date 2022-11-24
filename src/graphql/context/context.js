@@ -19,7 +19,7 @@ const verifyJwtToken = async (token) => {
 };
 
 const authorizeUserWithBearerToken = async (req) => {
-  if (!req || !req.headers || !req.headers.authorization) return '';
+  if (!req || !req?.headers || !req?.headers.authorization) return '';
 
   //req.headers.authorization
   const { headers } = req; // requisição
@@ -60,33 +60,22 @@ const cookieParser = (cookiesHeader) => {
 
 export const context = async ({ req, res, connection }) => {  // res aula 70 cookie
   //console.log(connection);
-  const reqOrConnection = req || connection?.context?.req;
+  const reqOrConnection = req || connection?.context?.req; // a requisição é via http ou web soquet
   let loggedUserId = await authorizeUserWithBearerToken(reqOrConnection);
 
-  console.log(reqOrConnection.headers);
-  
+  //console.log(reqOrConnection.headers);
+
    if (!loggedUserId) {
-    if (req && req.headers && req.headers.cookie) { // aula 93 validar o token para a conexão(cookie)
+    if (reqOrConnection && reqOrConnection?.headers && reqOrConnection?.headers.cookie) { // aula 93 validar o token para a conexão(cookie)
       const { jwtToken } = cookieParser(req.headers.cookie);
       loggedUserId = await verifyJwtToken(jwtToken);
     }
   }
-  const theContext = {
+
+  return {
     loggedUserId,
     res,
   };
-
-  if (connection) {
-    const userApi = new UsersApi();
-    userApi.initialize({});
-
-    theContext.dataSources = {
-      userApi,
-    };
-  }
-
-  return theContext;
 };
-
 
  

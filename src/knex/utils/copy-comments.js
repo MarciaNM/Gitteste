@@ -16,10 +16,10 @@ const commentsForDb = comments.map((comment) => {
 knex('comments')
     .insert(commentsForDb)
     .then((r) => {
-        console.log(r);
+        //console.log(r);
     })
     .catch((e) => { 
-    console.log(e);
+    //console.log(e);
     })
     .finally(() => {
     knex.destroy();

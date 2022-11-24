@@ -38,6 +38,7 @@ const server = new ApolloServer({
     onConnect: (connectionParams, ws, _context) =>{
       //console.log('Client connected');
       //console.log('ws');
+
       return {
         req: ws.upgradeReq,
       };

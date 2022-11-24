@@ -63,7 +63,7 @@ export const context = async ({ req, res, connection}) => {  // res aula 70 cook
   const reqOrConnection = req || connection?.context?.req;
   let loggedUserId = await authorizeUserWithBearerToken(reqOrConnection);
 
-  console.log(reqOrConnection.headers);
+  //console.log(reqOrConnection.headers);
 
   if (!loggedUserId) {
       if (reqOrConnection && reqOrConnection.headers && reqOrConnection.headers.cookie) { // aula 93 validar o token para a conexão(cookie)
@@ -71,12 +71,6 @@ export const context = async ({ req, res, connection}) => {  // res aula 70 cook
       loggedUserId = await verifyJwtToken(jwtToken);
     }
   }
-
-  const theContext = {
-    loggedUserId,
-    res,
-  };
-
 
   return {
     loggedUserId,
